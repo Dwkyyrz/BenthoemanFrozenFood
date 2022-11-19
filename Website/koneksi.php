@@ -11,5 +11,4 @@
         die("Error, Please Try Again:" . mysqli_connect_error());
     }
 
-
 ?>

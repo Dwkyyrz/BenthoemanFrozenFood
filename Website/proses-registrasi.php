@@ -12,7 +12,7 @@ include './koneksi.php';
     if ($register){
         echo "
             <script>
-                alert('Anda berhasil Sing up');
+                alert('Anda berhasil mendaftar');
                 window.location = 'registrasi.html';
             </script>
         ";
@@ -20,9 +20,9 @@ include './koneksi.php';
     else{
         echo "
             <script>
-                alert('anda gagal dalam melakukan Sing up');
+                alert('Gagal dalam melakukan pendaftaran');
 
-                //window.location = 'registrasi.html';
+                // window.location = 'registrasi.html';
             </script>
         ";
     }

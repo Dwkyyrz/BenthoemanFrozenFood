@@ -33,7 +33,7 @@
 }
 nav {
   display: flex;
-  /* z-index: 1; */
+  z-index: 1;
   justify-content: space-between;
   align-items: center;
   padding-left: 1em;
@@ -136,44 +136,89 @@ nav .search .searchInput input {
     outline: none;
     background-color: var(--white-dark);
 }
-.slogan {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100vh;
-  /* background-color: blue; */
-  justify-content: center;
-  align-items: center;
+.header-container {
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
 }
-.slogan .text {
+.banner {
+  display: flex;
+  width: 100% !important;
+  height: 100vh;
+  background-image: url(src/img/bg1.png);
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position:top right;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.banner .text {
   width: 30%;
   height: 50%;
-  background-color: aqua;
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
+  margin-left: 1vw;
 }
 .text span {
   font-family: 'Poppins';
   font-weight: 800;
   font-size: 2em;
   gap: 0;
+  overflow-y: hidden;
 }
 .text p {
   margin-top: 10px;
   margin-bottom: 10px;
+  overflow-y: hidden;
 }
 .text button {
-  width: 30%;
+  width: 150px;
+  overflow-y: hidden;
 }
 .bg1 img{
-  /* position: fixed; */
-  max-width: 500px;
-  max-height: 500px;
-  left: 60vw;
+  position: relative;
+  max-width: 600px;
+  max-height: 600px;
+  float: right;
+  justify-content: end;
 }
-.produk {
+.header-container #img1 {
+  position: absolute;
+  width: 100vw;
+  height: 65vh;
+  bottom: 1px;
+  z-index: 1;
+  object-fit: cover;
+}
+.slogan {
   width: 100%;
   height: 100vh;
   background-color: bisque;
+  position: relative;
+  margin-top: 0;
+  overflow-y: hidden;
+}
+
+.slogan #img2 {
+  position: absolute;
+  width: 100vw;
+  height: 60vh;
+  top: 0;
+  transform: rotate(180deg);
+  z-index: 1;
+  object-fit: cover;
+}
+
+.slogan-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.slogan-content .card {
+  z-index: 1;
+  max-width: 400px;
+  max-height: 400px;
+  margin-top: 40vh;
+  overflow-y: hidden;
 }

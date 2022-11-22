@@ -6,9 +6,9 @@ include './koneksi.php';
     $password = md5($_POST['password']);
     $alamat = $_POST['alamat'];
     $nohp = $_POST['nohp'];
-
+    
     $register = mysqli_query($koneksi,"INSERT INTO user (nama, username, email, password, alamat, notelp, rule) VALUES ('$nama','$username','$email','$password','$alamat','$nohp','client')");
-
+    
     if ($register){
         echo "
             <script>

@@ -155,11 +155,13 @@ nav .search .searchInput input {
   
 }
 .banner .text {
-  width: 30%;
+  background-color: transparent;
+  width: 40%;
   height: 50%;
   display: flex;
   flex-direction: column;
   margin-left: 1vw;
+  
 }
 .text span {
   font-family: 'Poppins';
@@ -176,18 +178,20 @@ nav .search .searchInput input {
 .text button {
   width: 150px;
   overflow-y: hidden;
+  z-index: 2;
 }
 .bg1 img{
-  position: relative;
+  /* position: relative; */
   max-width: 600px;
   max-height: 600px;
   float: right;
   justify-content: end;
+  /* opacity: 0; */
 }
 .header-container #img1 {
   position: absolute;
   width: 100vw;
-  height: 65vh;
+  height: 500px;
   bottom: 1px;
   z-index: 1;
   object-fit: cover;
@@ -204,7 +208,7 @@ nav .search .searchInput input {
 .slogan #img2 {
   position: absolute;
   width: 100vw;
-  height: 60vh;
+  height: 400px;
   top: 0;
   transform: rotate(180deg);
   z-index: 0;

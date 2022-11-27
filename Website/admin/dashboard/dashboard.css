@@ -127,7 +127,7 @@ aside i {
 
 
 
-/* @media only screen and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
   aside {
     display: flex;
     flex-direction: row;
@@ -140,7 +140,7 @@ aside i {
     top: 0;
   }
   .logo {
-    margin-top: 0;
+    text-align: center;
     padding: 0;
   }
   .toggle {
@@ -159,4 +159,4 @@ aside i {
   .konten2 {
     margin-left: 0;
   }
-} */
+}

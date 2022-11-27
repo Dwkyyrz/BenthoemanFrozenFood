@@ -50,6 +50,31 @@
         </a>
       </div>
     </aside>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">no</th>
+            <th scope="col">nama</th>
+            <th scope="col">email</th>
+            <th scope="col">username</th>
+          </tr>
+        </thead>
+        <?php 
+        include '../../koneksi.php';
+        $no = 1;
+        $query = mysqli_query($koneksi, "SELECT * FROM user WHERE rule = 'client'");
+        while ($data = mysqli_fetch_array($query)) {
+        ?>
+        <tbody>
+          <tr>
+            <th scope="row"><?php echo $no++ ?></th>
+            <td><?php echo $data['nama'] ?></td>
+            <td><?php echo $data['email'] ?></td>
+            <td>@<?php echo $data['username'] ?></td>
+          </tr>
+        </tbody>
+        <?php }; ?>
+      </table>
   </div>
   
 </body>

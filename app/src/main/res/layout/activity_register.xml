@@ -10,6 +10,7 @@
     android:gravity="center">
 
     <ImageView
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/register">
@@ -34,17 +35,42 @@
         android:textSize="20dp">
     </TextView>
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="340dp">
     <LinearLayout
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_width="325dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:background="@drawable/card">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/user"
+            app:startIconTint="#4f5455"
+            android:hint="Nama"
+            android:background="@color/white"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:helperText="Required *"
+            app:helperTextTextColor="@color/red"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -111,22 +137,66 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/lokasi"
+            app:startIconTint="#4f5455"
+            android:hint="Alamat"
+            android:background="@color/white"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:helperText="Required *"
+            app:helperTextTextColor="@color/red"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/phoneicon"
+            app:startIconTint="#4f5455"
+            android:hint="No. Telepon"
+            android:background="@color/white"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+            app:helperText="Required *"
+            app:helperTextTextColor="@color/red"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
             android:text="Register"
             android:textColor="@color/white"
             android:backgroundTint="@color/appbar">
         </Button>
 
     </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="17dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -138,15 +208,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="login"
+            android:text="Login"
             android:textColor="@color/appbar"
             android:textStyle="bold"
             android:textSize="16dp"
             android:onClick="login">
         </TextView>
     </LinearLayout>
-
-
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>

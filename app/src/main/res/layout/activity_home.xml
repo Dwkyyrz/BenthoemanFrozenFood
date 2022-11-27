@@ -85,6 +85,9 @@
         </LinearLayout>
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="515dp">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -162,6 +165,130 @@
             android:textSize="16dp"
             android:paddingLeft="10dp">
         </TextView>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/card"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="120dp"
+                                android:src="@drawable/food">
+                            </ImageView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Bakso"
+                                android:textColor="@color/black"
+                                android:textAlignment="center"
+                                android:textSize="18dp"
+                                >
+                            </TextView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Rp. 11.500"
+                                android:textAlignment="center"
+                                android:textSize="12dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="150dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:onClick="deskripsi">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="120dp"
+                                android:src="@drawable/food2">
+                            </ImageView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Lumpia Ayam"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                >
+                            </TextView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Rp. 11.500"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="12dp"
+                                android:textStyle="bold">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="150dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:onClick="deskripsi">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="120dp"
+                                android:src="@drawable/food2">
+                            </ImageView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Lumpia Ayam"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                >
+                            </TextView>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Rp. 11.500"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="12dp"
+                                android:textStyle="bold">
+                            </TextView>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+        </TableLayout>
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -248,9 +375,6 @@
                             </TextView>
                         </LinearLayout>
 
-
-
-
                     </LinearLayout>
 
 
@@ -259,7 +383,7 @@
         </TableLayout>
 
     </LinearLayout>
-
+    </ScrollView>
 
 
     <LinearLayout

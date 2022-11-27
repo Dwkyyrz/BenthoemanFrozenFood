@@ -123,16 +123,16 @@
             android:textColor="@color/black"
             android:textSize="16dp">
         </TextView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="RegisterNow"
+            android:onClick="register"
+            android:text="Register Now"
             android:textColor="@color/appbar"
-            android:textStyle="bold"
             android:textSize="16dp"
-            android:onClick="register">
-        </TextView>
+            android:textStyle="bold"></TextView>
     </LinearLayout>
 
 

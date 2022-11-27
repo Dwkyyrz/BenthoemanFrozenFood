@@ -57,6 +57,7 @@
             <th scope="col">nama</th>
             <th scope="col">email</th>
             <th scope="col">username</th>
+            <th scope="col">time</th>
           </tr>
         </thead>
         <?php 
@@ -71,6 +72,7 @@
             <td><?php echo $data['nama'] ?></td>
             <td><?php echo $data['email'] ?></td>
             <td>@<?php echo $data['username'] ?></td>
+            <td><?php echo $data['time_stamp'] ?></td>
           </tr>
         </tbody>
         <?php }; ?>

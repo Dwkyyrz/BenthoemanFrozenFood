@@ -87,7 +87,7 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="515dp">
+        android:layout_height="490dp">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -286,145 +286,241 @@
 
                     </LinearLayout>
 
-
                 </HorizontalScrollView>
         </TableLayout>
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Produk Terlaris"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:paddingLeft="10dp">
+        </TextView>
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp">
-            <TableRow
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                android:layout_height="match_parent">
 
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp">
                     <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="200dp">
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="150dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/card"
-                            android:gravity="center">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="120dp"
-                                android:src="@drawable/food">
-                            </ImageView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:text="Bakso"
-                                android:textColor="@color/black"
-                                android:textAlignment="center"
-                                android:textSize="18dp"
-                                >
-                            </TextView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Rp. 11.500"
-                                android:textAlignment="center"
-                                android:textSize="12dp"
-                                android:textColor="@color/black"
-                                android:textStyle="bold">
-                            </TextView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="150dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/card"
-                            android:gravity="center"
-                            android:onClick="deskripsi">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="120dp"
-                                android:src="@drawable/food2">
-                            </ImageView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:text="Lumpia Ayam"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="18dp"
-                                >
-                            </TextView>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Rp. 11.500"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="12dp"
-                                android:textStyle="bold">
-                            </TextView>
-                        </LinearLayout>
-
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/card"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            android:src="@drawable/food">
+                        </ImageView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="Bakso"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="18dp"
+                            >
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rp. 11.500"
+                            android:textAlignment="center"
+                            android:textSize="12dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold">
+                        </TextView>
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:onClick="deskripsi">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            android:src="@drawable/food2">
+                        </ImageView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="Lumpia Ayam"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            >
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rp. 11.500"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="12dp"
+                            android:textStyle="bold">
+                        </TextView>
+                    </LinearLayout>
 
-                </HorizontalScrollView>
-            </TableRow>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="150dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:onClick="deskripsi">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            android:src="@drawable/food2">
+                        </ImageView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="Lumpia Ayam"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            >
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rp. 11.500"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="12dp"
+                            android:textStyle="bold">
+                        </TextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
         </TableLayout>
-
     </LinearLayout>
     </ScrollView>
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/white"
-        android:gravity="center">
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/medical_history">
-        </ImageButton>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
 
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/home">
-        </ImageButton>
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/fast_food">
-        </ImageButton>
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/email">
-        </ImageButton>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_home"></ImageButton>
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_produk"></ImageButton>
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_chat"></ImageButton>
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_riwayat"></ImageButton>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="-10dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Beranda"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Produk"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Chat"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Riwayat"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+        </LinearLayout>
 
     </LinearLayout>
 

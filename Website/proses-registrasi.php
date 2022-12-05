@@ -8,7 +8,7 @@ include './koneksi.php';
     $nohp = $_POST['nohp'];
     
     $register = mysqli_query($koneksi,"INSERT INTO user (nama, username, email, password, alamat, notelp, rule) VALUES ('$nama','$username','$email','$password','$alamat','$nohp','client')");
-    
+    // header("Location:registrasi.html");
     if ($register){
         echo "
             <script>
@@ -23,7 +23,7 @@ include './koneksi.php';
                 alert('Gagal dalam melakukan pendaftaran');
 
                 // window.location = 'registrasi.html';
-            </script>
-        ";
+            </script>N
+        ";  
     }
 ?>

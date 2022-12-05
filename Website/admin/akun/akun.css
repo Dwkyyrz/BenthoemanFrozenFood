@@ -35,8 +35,8 @@ input {
   display: grid;
   gap: 1.8rem;
   grid-template-columns: 16rem auto;
-  /* width: 99%; */
-  /* margin: 0 0 auto; */
+  width: 100vw;
+  height: 100%;
 }
 
 /* ================== SIDEBAR ======================*/
@@ -90,7 +90,9 @@ aside i {
   
 }
 .sidebar a:hover{
-  color: var(--dark);
+  margin: 0;
+  background-color: var(--info-light);
+  color: var(--hover);  
 }
 .sidebar i {
   width: 1.6rem;
@@ -117,8 +119,11 @@ aside i {
   background-color: var(--hover);
 }
 
-
-
+.konten{
+  background-color: bisque ;
+  margin-left: 16rem;
+  width: 100%;
+}
 
 
 

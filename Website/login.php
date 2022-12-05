@@ -7,9 +7,16 @@ $password = md5($_POST['password']);
 $login = mysqli_query($koneksi, "SELECT * from user where username='$username' and password='$password'");
 $cek = mysqli_num_rows($login);
 
-$nama = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username'");
-$cek_nama = mysqli_num_rows($nama);
-if ($cek > 0) {
+$admin = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password' AND rule='admin'");
+$adm_cek = mysqli_num_rows($admin);
+
+if ($adm_cek > 0) {
+  session_start();
+  $_SESSION['username'] = $username;
+  $_SESSION['status'] = "login";
+  header("location:../Website/admin/dashboard/dashboard.html");
+}
+else if ($cek > 0) {
   session_start();
   $_SESSION['username'] = $username;
   $_SESSION['status'] = "login";

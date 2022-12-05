@@ -29,7 +29,8 @@
 .fcontainer {
   display: flex;
   flex-direction: column;
-  height: 5000px;
+  flex-wrap: wrap;
+  /* height: 5000px; */
   /* background-color: aqua; */
 }
 
@@ -37,7 +38,7 @@
   width: 100%;
   background-color: transparent;
   position: fixed;
-  z-index: 1;
+  z-index: 9999;
 }
 nav {
   display: flex;
@@ -206,8 +207,10 @@ nav .search .searchInput input {
   object-fit: cover;
 }
 .slogan {
+  /* display: flex; */
   width: 100%;
   height: 100vh;
+  max-height: 200vh;
   background-color: var(--white) ;
   position: relative;
   margin-top: 0;
@@ -218,21 +221,106 @@ nav .search .searchInput input {
   position: absolute;
   width: 100vw;
   height: 400px;
-  top: 0;
+  /* top: 0; */
   transform: rotate(180deg);
-  z-index: 0;
+  z-index: 1;
   object-fit: cover;
 }
 
 .slogan-content {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   flex-direction: row;
   justify-content: space-around;
+  z-index: 2;
+  position: absolute;
+  bottom: 0%;
 }
 .slogan-content .card {
-  /* z-index: 1; */
-  max-width: 400px;
-  max-height: 400px;
-  margin-top: 40vh;
-  overflow-y: hidden;
+  width: 350px;
+  height: 400px;
+  background-color: var(--birucerah);
+  border-radius: 50% 50% 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.slogan-content .card img {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  width: 150px;
+  height: 150px;
+}
+.slogan-content .card h4 {
+  text-align: center;
+  margin-bottom: 1.3rem;
+}
+.slogan-content .card p {
+  text-align: center;
+  margin-bottom: 1.3rem;
+  margin-left: 1.3rem;
+  margin-right: 1.3rem;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: var(--hijau-gelap1);
+  width: 100%;
+  min-height: 100vh;
+  color: var(--white);
+  text-align: center;
+}
+
+.about-us h1{
+  margin-top: 10%;
+}
+.about-us p {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+} 
+
+.produk {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--birucerah);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+}
+.bottom .teks {
+  margin-top: auto;
+  margin-left: 5%;
+}
+.bottom .teks h1{
+  margin-bottom: 3rem;
+}
+.bottom .teks p{
+  width: 50%;
+}
+
+.bottom .ornamen{
+  margin-top: auto;
+}
+.bottom .slice {
+  width: 100%;
+  height: 3rem;
+  background-color: var(--hijau-gelap1);
+}
+.bottom .bottom-bot {
+  width: 100%;
+  height: 200px;
+  background-color: var(--hijau-gelap1);
+  margin-top: 0.1rem;
 }

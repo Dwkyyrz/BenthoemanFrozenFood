@@ -14,13 +14,15 @@ if ($adm_cek > 0) {
   session_start();
   $_SESSION['username'] = $username;
   $_SESSION['status'] = "login";
-  header("location:../Website/admin/dashboard/dashboard.html");
+  $_SESSION['rule'] = "admin";
+  header("location:../Website/admin/dashboard/dashboard.php");
 }
 else if ($cek > 0) {
   session_start();
   $_SESSION['username'] = $username;
   $_SESSION['status'] = "login";
-  header("location:tes.php");
+  $_SESSION['rule'] = "user";
+  header("location:indexLoged.php");
 }
 else if ($username=="" && $password== md5("")) {
   echo "<script> 

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benthoeman Frozenfood</title>
-  <link rel="stylesheet" href="indexstyle.css">
+  <link rel="stylesheet" href="indexstyleLoged.css">
   <link rel="icon" type="image/x-icon" href="src/img/bg2.png">
 </head>
 
 <body>
   <div class="fcontainer">
-
+    <div class="navbar">
       <nav class="navigasi">
         <div class="logo">
           <span id="lg1">Benthoeman</span><br>
@@ -30,6 +28,18 @@
 
         <div class="tools">
 
+          <div class="search">
+            <div class="searchIcon">
+              <ion-icon name="search-outline"></ion-icon>
+            </div>
+            <div class="searchInput">
+              <input type="text" placeholder="Search...">
+            </div>
+            <div class="close">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+          </div>
+
           <div class="icon">
             <a href="#">
               <svg width="24" height="24" viewBox="0 0 24 24   " fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -40,23 +50,26 @@
           </div>
 
           <div class="user">
-            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z" />
-            <circle cx="12" cy="6" r="6" />
-            </svg>
-            <div class="sub-menu-wrap">
-                <div class="sub-menu">
-                  <div class="user-info">
-                    <h4>NAMA PELANGGAN</h4>
-                  </div>
-                </div>  
-            </div>
-          
+            <?php 
+              include 'koneksi.php';
+
+              session_start();
+              if($_SESSION['status']!== "login"){
+                echo "<script>
+                        alert('LOGIN DAHULU!!!');
+                        window.location = 'registrasi.html';
+                      </script>";
+                // header("location:registrasi.html");
+              }
+              
+            ?>
+            <a href="logout.php">
+              <?php echo $_SESSION['username']; ?>
+            </a>
           </div>
         </div>
       </nav>
-    
+    </div>
 
 
     <section class="header-container">
@@ -66,6 +79,9 @@
           <span>For your mood</span>
           <p>Benthoeman frozen food menyediakan aneka ragam makanan beku mulai dari olahan ayam, daging, sayur dan juga
             ikan.</p>
+          <!-- <a href="index.html">
+            asoas
+          </a> -->
         </div>
 
         <div class="bg1">
@@ -103,10 +119,7 @@
     </section>
 
     <section class="produk">
-      <h1>PRODUK</h1>
-      <div class="card">
-        
-      </div>
+
     </section>
 
     <section class="bottom">
@@ -126,6 +139,20 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <!-- End Search -->
+  <!-- SearchQuery-->
+  <script>
+    let searchIcon = document.querySelector('.searchIcon');
+    let search = document.querySelector('.search');
+    let close = document.querySelector('.close');
+
+    searchIcon.onclick = function () {
+      search.classList.add('search-active');
+    }
+    close.onclick = function () {
+      search.classList.remove('search-active');
+    }
+  </script>
+  <!-- End SearchQuery-->
 </body>
 
 </html>

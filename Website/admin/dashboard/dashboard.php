@@ -1,3 +1,14 @@
+<?php 
+  include '../../koneksi.php';
+    session_start();
+    if($_SESSION['status']!== "login"){
+      header("location:../../logout.php");
+    }
+    if($_SESSION['rule']!== "admin"){
+      header("location:../../logout.php");
+    }
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,12 +55,16 @@
           <i class="fa-solid fa-basket-shopping"></i>
           <span>Produk</span>
         </a>
-        <a href="../../index.html">
+        <a href="../../logout.php">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
           <span>Logout</span>
         </a>
       </div>
     </aside>
+
+    <div class="topbar">
+      
+    </div>
   </div>
   
 </body>

@@ -1,6 +1,6 @@
 <?php 
-     include './koneksi.php';
-     session_start();
+    include 'koneksi.php';
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,30 +17,7 @@
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="./indexLoged.php">frozenfood</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">keranjang</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">keranjang</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">keranjang</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">keranjang</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
 
 <div class="container text-center">
   <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
@@ -54,6 +31,7 @@
         <div class="card-body">
             <h5 class="card-title"><?= $data['nama_produk'] ?></h5>
             <p class="card-text"><?= $data['detail'] ?></p>
+            
             <form action="proses-cart.php" method="post">
                 <div class="container text-center">
                     <div class="row row-cols-2">

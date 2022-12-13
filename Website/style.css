@@ -33,52 +33,124 @@
   /* height: 5000px; */
   /* background-color: aqua; */
 }
+
 nav {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  z-index: 99;
-  position: fixed;
   width: 100%;
+  position: fixed;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
   justify-content: space-around;
   align-items: center;
-  padding-left: 1em;
-  padding-right: 1em;
-  background-color: transparent;
+  z-index: 99999;
 }
+
 nav .logo {
   text-align: center;
 }
+
 nav #lg1 {
-    color: var(--birucerah);
-    font-family: 'Poppins';
-    font-weight: 700;
-    font-size: 1.5em;
+  color: var(--birucerah);
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 1.5em;
 }
+
 nav #lg2 {
-    color: var(--birucerah);
-    font-family: 'Allison';
-    font-weight: 600;
-    font-size: 2em;
+  color: var(--birucerah);
+  font-family: 'Allison';
+  font-weight: 600;
+  font-size: 2em;
 }
+
 nav ul {
   display: flex;
-  list-style: none;
-  justify-content: space-between;
-  width: 40%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-nav .tools {
+
+nav li a {
+  display: block;
+  color: var(--dark);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: var(--info-light);
+  color: var(--dark);
+}
+
+.profile {
+  float: left;
+  overflow: hidden;
+}
+
+.profile-btn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.profile-content {
+  display: none;
+  position: fixed;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  max-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right:4%;
+}
+.profile-content .user,
+.profile-content .akun{
   display: flex;
-  /* justify-content: space-between; */
-  gap: 2em;
+  flex-wrap:  wrap;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+}
+.profile-content hr {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1px;
+  background-color:black;
+}
+.profile-content .user:hover{
+  background-color: transparent;
+}
+.profile-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
-.sub-menu-wrap{
-  position: absolute;
-  top: 100%;
-  right: 10%;
-  width: 320px;
-  z-index: 9999;
+.profile-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.profile:hover .profile-content {
+  display: block;
 }
 
 .header-container {

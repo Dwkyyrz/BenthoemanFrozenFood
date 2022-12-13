@@ -23,7 +23,7 @@ include './koneksi.php';
                 alert('Gagal dalam melakukan pendaftaran');
 
                 // window.location = 'registrasi.html';
-            </script>N
+            </script>
         ";  
     }
 ?>

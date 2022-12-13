@@ -43,7 +43,7 @@
           <i class="fa-solid fa-house"></i>
           <span>Dashboard</span>
         </a>
-        <a href="../../admin/akun/akun.html" >
+        <a href="../../admin/akun/akun.php" >
           <i class="fa-solid fa-id-badge"></i>
           <span>Akun</span>
         </a>

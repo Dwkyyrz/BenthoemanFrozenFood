@@ -5,7 +5,12 @@
       header("location:../../logout.php");
     }
     if($_SESSION['rule']!== "admin"){
-      header("location:../../logout.php");
+      echo "
+        <script> 
+          alert('Anda bukan administrator')
+          window.location = '../../index.php' 
+        </script>";
+      // header("location:../../logout.php");
     }
   ?>
 

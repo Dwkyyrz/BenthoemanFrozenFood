@@ -22,7 +22,7 @@ else if ($cek > 0) {
   $_SESSION['username'] = $username;
   $_SESSION['status'] = "login";
   $_SESSION['rule'] = "user";
-  header("location:indexLoged.php");
+  header("location:index.php");
 }
 else if ($username=="" && $password== md5("")) {
   echo "<script> 

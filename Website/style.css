@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Allison&family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Caveat+Brush&family=Poppins:wght@500&display=swap');
 
-*, html, body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', arial, helvetica, sans-serif;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', arial, helvetica, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media only screen and (max-width: 600px) {
@@ -13,19 +15,21 @@
     background-color: lightblue;
   }
 }
+
 :root {
-    --dark: black;
-    --info-dark: #7d8da1;
-    --light: rgba(132, 139, 200, 0.18);
-    --info-light: #dce1eb;
-    --white: white;
-    --hijau-gelap1: rgba(9, 60, 88);
-    --hijau-gelap2: rgba(14, 34, 56);
-    --white-dark: rgba(240, 240, 240);
-    --birugelap : rgba(55, 138, 164, 1);
-    --birucerah : rgba(159, 225, 245);
-    --hover : rgba(102, 163, 186);
+  --dark: black;
+  --info-dark: #7d8da1;
+  --light: rgba(132, 139, 200, 0.18);
+  --info-light: #dce1eb;
+  --white: white;
+  --hijau-gelap1: rgba(9, 60, 88);
+  --hijau-gelap2: rgba(14, 34, 56);
+  --white-dark: rgba(240, 240, 240);
+  --birugelap: rgba(55, 138, 164, 1);
+  --birucerah: rgba(159, 225, 245);
+  --hover: rgba(102, 163, 186);
 }
+
 .fcontainer {
   display: flex;
   flex-direction: column;
@@ -112,26 +116,30 @@ nav li a:hover {
   max-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  right:4%;
+  right: 4%;
 }
+
 .profile-content .user,
-.profile-content .akun{
+.profile-content .akun {
   display: flex;
-  flex-wrap:  wrap;
+  flex-wrap: wrap;
   /* justify-content: center; */
   align-items: center;
   gap: 10px;
 }
+
 .profile-content hr {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   height: 1px;
-  background-color:black;
+  background-color: black;
 }
-.profile-content .user:hover{
+
+.profile-content .user:hover {
   background-color: transparent;
 }
+
 .profile-content a {
   float: none;
   color: black;
@@ -158,6 +166,7 @@ nav li a:hover {
   overflow: hidden;
   z-index: -1;
 }
+
 .banner {
   display: flex;
   width: 100%;
@@ -165,11 +174,12 @@ nav li a:hover {
   background-image: url(src/img/bg1.png);
   background-size: 500px;
   background-repeat: no-repeat;
-  background-position:top right;
+  background-position: top right;
   justify-content: space-around;
   align-items: center;
-  
+
 }
+
 .banner .text {
   background-color: transparent;
   width: 40%;
@@ -177,8 +187,9 @@ nav li a:hover {
   display: flex;
   flex-direction: column;
   margin-left: 1vw;
-  
+
 }
+
 .text span {
   font-family: 'Poppins';
   font-weight: 800;
@@ -186,11 +197,13 @@ nav li a:hover {
   gap: 0;
   overflow-y: hidden;
 }
+
 .text p {
   margin-top: 10px;
   margin-bottom: 10px;
   overflow-y: hidden;
 }
+
 .banner .text .btn_all-produk {
   width: 150px;
   overflow-y: hidden;
@@ -198,7 +211,8 @@ nav li a:hover {
   background-color: var(--hijau-gelap1);
   color: var(--white);
 }
-.bg1 img{
+
+.bg1 img {
   /* position: relative; */
   max-width: 600px;
   max-height: 600px;
@@ -206,6 +220,7 @@ nav li a:hover {
   justify-content: end;
   /* opacity: 0; */
 }
+
 .header-container #img1 {
   position: absolute;
   width: 100vw;
@@ -214,12 +229,13 @@ nav li a:hover {
   z-index: 1;
   object-fit: cover;
 }
+
 .slogan {
   /* display: flex; */
   width: 100%;
   height: 100vh;
   max-height: 200vh;
-  background-color: var(--white) ;
+  background-color: var(--white);
   position: relative;
   margin-top: 0;
   overflow-y: hidden;
@@ -245,6 +261,7 @@ nav li a:hover {
   position: absolute;
   bottom: 0%;
 }
+
 .slogan-content .card {
   width: 350px;
   height: 400px;
@@ -262,10 +279,12 @@ nav li a:hover {
   width: 150px;
   height: 150px;
 }
+
 .slogan-content .card h4 {
   text-align: center;
   margin-bottom: 1.3rem;
 }
+
 .slogan-content .card p {
   text-align: center;
   margin-bottom: 1.3rem;
@@ -275,38 +294,189 @@ nav li a:hover {
 
 .about-us {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
+  position: relative;
   background-color: var(--hijau-gelap1);
+  background-image: url(../Website/src/svg/decor-01.svg);
+  /* background-size: 110vh; */
+  background-repeat: no-repeat;
+  background-position: left;
   width: 100%;
-  min-height: 100vh;
-  color: var(--white);
+  min-height: 110vh;
+  color: var(--dark);
   text-align: center;
+  overflow: hidden;
 }
 
-.about-us h1{
-  margin-top: 10%;
+.about-us .bg-about-us {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
 }
+
+.about-us .teks-about-us1,
+.about-us .teks-about-us2 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  z-index: 2;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us .teks-about-us1 {
+  background-image: url(../Website/src/svg/piring.svg);
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.about-us .teks-about-us1 .tangan {
+  width: 600px;
+  height: 400px;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: auto;
+  z-index: 2;
+}
+
+.about-us .teks-about-us1 .daun1 {
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  left: 300px;
+}
+
+.about-us .teks-about-us1 .daun2 {
+  width: 600px;
+  height: 450px;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -120px;
+}
+
+.about-us .teks-about-us2 {
+  color: var(--white);
+}
+
+.about-us .teks-about-us2 h1 {
+  font-family: 'Caveat Brush';
+  position: absolute;
+  top: 17%;
+  font-size: 4rem;
+  line-height: 100px;
+  letter-spacing: .1rem;
+  font-weight: 400;
+}
+
 .about-us p {
-  margin-top: 5%;
-  margin-left: 10%;
-  margin-right: 10%;
-} 
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 38px;
+  max-width: 500px;
+}
 
 .produk {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   width: 100%;
-  min-height: 100vh;
-  background-color: var(--birucerah);
+  height: 110vh;
+  background-color: var(--hijau-gelap1);
+  background-image: url(../Website/src/svg/decor-02.svg);
+  background-repeat: no-repeat;
+  background-position: left;
 }
-.produk h1 {
+.produk .top-produk{
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+
+}
+.produk .top-produk h1 {
+  color: var(--hijau-gelap1);
+  /* text-transform: uppercase; */
+  font-family: 'Caveat Brush';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 90px;
+  margin-left: 13%;
+}
+.produk .top-produk button{
+  width: 200px;
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: 10%;
+  border: none;
+  background-color: var(--white);
+  color: var(--hijau-gelap1);  
+}
+.produk .top-produk button:hover{
+  background-color: var(--info-light);
+}
+
+.produk .card{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80vw;
+  min-height: 50vh;
+  max-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: bisque; */
+  z-index: 3;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 5px;
+}
+.produk .card .card-produk{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 250px;
+  height: 320px;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, .1);
+}
+.produk .card .card-produk .img-produk{
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.produk .card .card-produk img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.produk .card .card-produk span{
+  margin-left: 15px;
+}
+.produk .card .card-produk button{
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: auto;
+  margin-bottom: 15px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: var(--hijau-gelap1);
   color: var(--white);
-  text-transform: uppercase;
+  border-radius: 10px;
 }
-
-
 .bottom {
   display: flex;
   flex-direction: column;
@@ -315,25 +485,30 @@ nav li a:hover {
   min-height: 100vh;
   background-color: var(--white);
 }
+
 .bottom .teks {
   margin-top: auto;
   margin-left: 5%;
 }
-.bottom .teks h1{
+
+.bottom .teks h1 {
   margin-bottom: 3rem;
 }
-.bottom .teks p{
+
+.bottom .teks p {
   width: 50%;
 }
 
-.bottom .ornamen{
+.bottom .ornamen {
   margin-top: auto;
 }
+
 .bottom .slice {
   width: 100%;
   height: 3rem;
   background-color: var(--hijau-gelap1);
 }
+
 .bottom .bottom-bot {
   width: 100%;
   height: 200px;

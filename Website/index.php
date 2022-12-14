@@ -32,9 +32,9 @@ if($_SESSION['status'] !== "login"){
 
       <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Products </a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#about-us">About</a></li>
+        <li><a href="#produk">Products </a></li>
+        <li><a href="#kontak">Contact</a></li>
       </ul>
 
 
@@ -74,20 +74,20 @@ if($_SESSION['status'] !== "login"){
                   echo $_SESSION['username'];
                 ?>
               </span>
-            </a>
-            <hr>
-            <a href="#" class="akun">
-              <i class="fa-solid fa-house"></i>
-              <span>My Account</span>
-            </a>
-            <a href="#" class="akun">
-              <i class="fa-solid fa-gear"></i>
-              <span>Settings</span>
-            </a>
-            <a href="logout.php" class="akun">
-              <i class="fa-solid fa-right-from-bracket"></i>
-              <span>Log out</span>
-            </a>
+              </a>
+              <hr>
+              <a href="#" class="akun">
+                <i class="fa-solid fa-house"></i>
+                <span>My Account</span>
+              </a>
+              <a href="#" class="akun">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+              </a>
+              <a href="logout.php" class="akun">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log out</span>
+              </a>
           </div>
         </li>
       </ul>
@@ -134,19 +134,96 @@ if($_SESSION['status'] !== "login"){
       </div>
     </section>
 
-    <section class="about-us">
-      <h1>ABOUT US</h1>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis perferendis ipsum, temporibus saepe et dolor maxime, magnam atque odit rerum dolores dolore similique quisquam quam porro alias explicabo at cum officiis ab modi. Vitae natus aperiam neque facilis asperiores atque! Earum eligendi vero consectetur nisi. Nisi cumque voluptate non pariatur, et eligendi qui necessitatibus placeat excepturi recusandae quas eum, aut nobis repellendus? Suscipit ullam doloribus nemo blanditiis quas, fugit voluptatibus fugiat fuga tempore sunt optio sint obcaecati qui error sapiente eos quae, ab voluptas dignissimos similique at minima. Nihil, eveniet assumenda! Commodi aliquid ipsum sint ex impedit, voluptatum odit officia.</p>
-    </section>
-
-    <section class="produk">
-      <h1>PRODUK</h1>
-      <div class="card">
-        
+    <section class="about-us" id="about-us">
+      <div class="teks-about-us1">
+        <img src="../Website/src/svg/daun.svg" class="daun1">
+        <img src="../Website/src/svg/tangan.svg" class="tangan">
+        <img src="../Website/src/svg/daun.svg" class="daun2">
+      </div>
+      <div class="teks-about-us2">
+        <h1>About Us</h1>
+        <p>Benthoeman Frozenfood menyediakan aneka ragam makanan beku mulai dari olahan ayam, daging, sayuran dan juga ikan</p>
       </div>
     </section>
 
-    <section class="bottom">
+    <section class="produk" id="produk">
+      <div class="top-produk">
+        <h1>Products</h1>
+        <button>View All Products</button>
+      </div>
+      <div class="card">
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        <div class="card-produk">
+          <div class="img-produk">
+            <img src="src/img/lumpia.jpg" alt="">
+          </div>
+          <span>Nama Produk</span>
+          <span>Rp. 10.000</span>
+          <button>Buy</button>
+        </div>
+        
+        
+        
+
+      </div>
+    </section>
+
+    <section class="bottom" id="kontak">
       <div class="teks">
         <h1>BISA PESAN MELALUI MOBILE APPS</h1>
         <p>Tersedia juga pemesanan produk frozen food Benthoeman melalui mobile apps Android yang dapat anda pesan secara mudah</p>

@@ -139,7 +139,7 @@ aside i {
 
 
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 600px) {
   aside {
     display: flex;
     flex-direction: row;

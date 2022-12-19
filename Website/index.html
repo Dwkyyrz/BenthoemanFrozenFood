@@ -1,4 +1,4 @@
-<?php 
+<div?php 
 include 'koneksi.php';
 session_start();
 if($_SESSION['status'] !== "login"){
@@ -30,13 +30,13 @@ if($_SESSION['status'] !== "login"){
         <span id="lg2">Frozenfood</span>
       </div>
 
-      <ul>
+      <ul class="menu">
         <li><a href="index.php">Home</a></li>
         <li><a href="#about-us">About</a></li>
         <li><a href="#produk">Products </a></li>
         <li><a href="#kontak">Contact</a></li>
       </ul>
-
+      
 
       <ul>
         <li>
@@ -90,6 +90,54 @@ if($_SESSION['status'] !== "login"){
               </a>
           </div>
         </li>
+
+        <li class="toggler">
+          <div class="toggle">
+            <a >
+              <i class="fa-solid fa-bars"></i>
+            </a>
+          </div>
+
+          <div class="toggle-content">
+            <a class="user">
+              <div class="img-profile">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24"
+                  height="24">
+                  <path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z" />
+                  <circle cx="12" cy="6" r="6" />
+                </svg>
+              </div>
+
+                <span>
+                  <?php 
+                    echo $_SESSION['username'];
+                  ?>
+                </span>
+            </a>
+            <hr>
+            <a href="#" class="toggle-menu">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
+            <a href="#about-us" class="toggle-menu">
+              <i class="fa-solid fa-info"></i>
+              <span>About</span>
+            </a>
+            <a href="#" class="toggle-menu">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span>Products</span>
+            </a>
+            <a href="#" class="toggle-menu">
+              <i class="fa-solid fa-phone"></i>
+              <span>Contact</span>
+            </a>
+            <a href="logout.php" class="toggle-menu">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Log out</span>
+            </a>
+          </div>
+        </li>
+
       </ul>
 
     </nav>
@@ -98,23 +146,24 @@ if($_SESSION['status'] !== "login"){
 
     <section class="header-container">
       <div class="banner">
+        <!-- Teks -->
         <div class="text">
-          <span>Fresh food,</span>
-          <span>For your mood</span>
-          <p>Benthoeman frozen food menyediakan aneka ragam makanan beku mulai dari olahan ayam, daging, sayur dan juga
-            ikan.</p>
+          <span class="teks-slogan">Fresh food, <br>For your mood</span><br>
+          <span class="teks-animasi"></span><br>
+          <button type="button" class="btn-all-produk">View All Products ></button><br>
         </div>
-
-        <div class="bg1">
+        <!-- Gambar-->
+        <div class="img-makanan">
           <img src="src/img/bg2.png" alt="">
         </div>
       </div>
-      <img id="img1" src="src/img/es.png">
+      <img id="img-es1" src="src/img/es.png">
     </section>
 
-
+    <!-- Konten 1 -->
     <section class="slogan">
-      <img id="img2" src="src/img/es2.png" alt="">
+      <img id="img-es2" src="src/img/es2.png" alt="">
+
       <div class="slogan-content">
         <div class="card">
           <img src="../Website/src/img/cloche.svg" alt="">
@@ -133,6 +182,7 @@ if($_SESSION['status'] !== "login"){
         </div>
       </div>
     </section>
+    <!-- End of Konten 1-->
 
     <section class="about-us" id="about-us">
       <div class="teks-about-us1">
@@ -240,6 +290,21 @@ if($_SESSION['status'] !== "login"){
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <!-- End Search -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed('.teks-animasi', {
+      strings: [
+        'Benthoeman frozen food menyediakan aneka ragam makanan beku'+'<br>'+' mulai dari olahan ayam, daging, sayur dan juga ikan.'
+      ],
+      typeSpeed: 35,
+      showCursor: true,
+      cursorChar: '|',
+      autoInsertCss: true,
+      loop: true,
+      backSpeed: 60
+
+    });
+  </script>
 </body>
 
 </html>

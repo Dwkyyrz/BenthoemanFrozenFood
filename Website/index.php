@@ -210,7 +210,9 @@ if($_SESSION['status'] !== "login"){
           <span>Rp. 10.000</span>
           <div class="input">
             <input type="number" min="1" placeholder="10" class="input-jumlah">
-            <button>Buy</button>
+            <button>
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
           </div>
         </div>
         

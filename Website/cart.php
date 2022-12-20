@@ -1,9 +1,12 @@
 <?php 
 include 'koneksi.php';
 session_start();
+$id = $_SESSION['id'];
 if($_SESSION['status'] !== "login"){
   header("location:registrasi.html");
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +34,7 @@ if($_SESSION['status'] !== "login"){
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Products </a></li>
+        <li><a href="./card.php">Products </a></li>
         <li><a href="#">Contact</a></li>
       </ul>
 
@@ -101,108 +104,49 @@ if($_SESSION['status'] !== "login"){
             <th class="th-produk">Produk</th>
             <th>Jumlah</th>
             <th>Total Harga</th>
+            <th>Hapus</th>
           </tr>
+          <form action="./proses-cekout.php" method="post">
 
+            <?php 
+          $total_harga = 0;
+          $total_bayar = 0;
+          $total_item = 0;
+            $sql_cart = mysqli_query($koneksi,"SELECT * FROM cart WHERE iduser = '$id' AND status='KERANJANG'");
+            while($cart = mysqli_fetch_array($sql_cart)){
+              
+              $sql_produk = mysqli_query($koneksi,"SELECT * FROM produk WHERE idproduk = '".$cart['idproduk']."'");
+              $produk = mysqli_fetch_array($sql_produk);
+              $total_harga = $produk['harga'] * $cart['jumlah'];
+              $total_bayar += $total_harga;
+              $total_item += $cart['jumlah'];
+          ?>
           <!-- contoh produk -->
           <tr>
+            <input type="text" name="id[]" value="<?php echo $cart['id'] ?>" hidden>
             <td class="td-produk">
-              <img src="admin/produk/img/apium-removebg-preview.png" alt="">
+              <img src="admin/produk/img/<?php echo $produk['img'] ?>" alt="">
               <div class="produk-detail">
-                <span>nama produk: Kebab</span>
-                <span>harga: Rp. 10.000</span>
+                <span>nama produk: <?php echo $produk['nama_produk'] ?></span>
+                <span>harga: Rp. <?php echo $produk['harga'] ?></span>
               </div>
             </td>
-            <td>3</td>
-            <td>Rp. 24.000</td>
+            <td><?php echo $cart['jumlah'] ?></td>
+            <td>Rp. <?php echo $total_harga ?></td>
+            <td><a href="./hapus-cart.php?id=<?= $cart['id'] ?>">hapus</a></td>
           </tr>
-          <tr>
-            <td class="td-produk">
-              <img src="admin/produk/img/apium-removebg-preview.png" alt="">
-              <div class="produk-detail">
-                <span>nama produk: Kebab</span>
-                <span>harga: Rp. 10.000</span>
-              </div>
-            </td>
-            <td>3</td>
-            <td>Rp. 24.000</td>
-          </tr>
-          <tr>
-            <td class="td-produk">
-              <img src="admin/produk/img/apium-removebg-preview.png" alt="">
-              <div class="produk-detail">
-                <span>nama produk: Kebab</span>
-                <span>harga: Rp. 10.000</span>
-              </div>
-            </td>
-            <td>3</td>
-            <td>Rp. 24.000</td>
-          </tr>
-          <tr>
-            <td class="td-produk">
-              <img src="admin/produk/img/apium-removebg-preview.png" alt="">
-              <div class="produk-detail">
-                <span>nama produk: Kebab</span>
-                <span>harga: Rp. 10.000</span>
-              </div>
-            </td>
-            <td>3</td>
-            <td>Rp. 24.000</td>
-          </tr>
-          <tr>
-            <td class="td-produk">
-              <img src="admin/produk/img/apium-removebg-preview.png" alt="">
-              <div class="produk-detail">
-                <span>nama produk: Kebab</span>
-                <span>harga: Rp. 10.000</span>
-              </div>
-            </td>
-            <td>3</td>
-            <td>Rp. 24.000</td>
-          </tr>
-          <tr>
-            <td class="td-produk">
-              <img src="admin/produk/img/apium-removebg-preview.png" alt="">
-              <div class="produk-detail">
-                <span>nama produk: Kebab</span>
-                <span>harga: Rp. 10.000</span>
-              </div>
-            </td>
-            <td>3</td>
-            <td>Rp. 24.000</td>
-          </tr>
-          <tr>
-            <td class="td-produk">
-              <img src="admin/produk/img/apium-removebg-preview.png" alt="">
-              <div class="produk-detail">
-                <span>nama produk: Kebab</span>
-                <span>harga: Rp. 10.000</span>
-              </div>
-            </td>
-            <td>3</td>
-            <td>Rp. 24.000</td>
-          </tr>
-
-          <!-- End contoh -->
-
-
-          <tr>
-            <th colspan="2" style="text-align: end;">Total Item: </th>
-            <th>3</th>
-          </tr>
-          <tr>
-            <th colspan="2" style="text-align: end;">Total Harga: </th>
-            <th>Rp. 24.000</th>
-          </tr>
+          <?php } ?>
         </table>
         <!-- END of Tabel -->
-
+        
         <!-- Pesanan -->
         <div class="order">
           <h3>Rincian Belanja</h3>
-          <span>Total Item: </span>
-          <span>Total Harga: </span>
+          <span>Total Item: <?php echo $total_item ?></span>
+          <span>Total Harga: <?php echo $total_bayar ?></span>
           <button type="submit" value="order">Order</button>
         </div>
+      </form>
         <!-- end of Pesanan -->
       </div>
 

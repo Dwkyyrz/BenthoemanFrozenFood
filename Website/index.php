@@ -266,7 +266,6 @@ if($_SESSION['status'] !== "login"){
           <button>Buy</button>
         </div>
       </div>
-      <?php } ?>
     </section>
 
     <section class="bottom" id="kontak">

@@ -184,10 +184,23 @@ nav li a:hover {
 }
 
 .konten {
+  display: flex;
   width: 100%;
   height: 100vh;
   background-color: bisque;
+  justify-content: center;
+  align-items: center;
 }
+.konten h1{
+  font-size: 30px;
+  /* width: 700px; */
+}
+/* Cursor */
+.typed-cursor {
+  font-size: 30px;
+}
+
+/* If fade out option is set */
 
 .konten2 {
   width: 100%;

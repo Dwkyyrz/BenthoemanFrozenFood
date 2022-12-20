@@ -10,11 +10,11 @@ body {
   overflow-x: hidden;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   body {
     background-color: lightblue;
   }
-}
+} */
 
 :root {
   --dark: black;
@@ -27,6 +27,7 @@ body {
   --white-dark: rgba(240, 240, 240);
   --birugelap: rgba(55, 138, 164, 1);
   --birucerah: rgba(159, 225, 245);
+  --birucerahTR: rgba(159, 225, 245, .5);
   --hover: rgba(102, 163, 186);
 }
 
@@ -38,7 +39,7 @@ body {
   /* background-color: aqua; */
 }
 
-nav {
+.navbar {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -52,27 +53,29 @@ nav {
   justify-content: space-around;
   align-items: center;
   z-index: 99999;
+  transition: all .5s ease;
+
 }
 
-nav .logo {
+.navbar .logo {
   text-align: center;
 }
 
-nav #lg1 {
-  color: var(--birucerah);
+.navbar #lg1 {
+  color: var(--birugelap);
   font-family: 'Poppins';
   font-weight: 700;
   font-size: 1.5em;
 }
 
-nav #lg2 {
-  color: var(--birucerah);
+.navbar #lg2 {
+  color: var(--birugelap);
   font-family: 'Allison';
   font-weight: 600;
   font-size: 2em;
 }
 
-nav ul {
+.navbar ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -80,19 +83,36 @@ nav ul {
 }
 
 
-nav li a {
+.navbar .menu .list-menu{
   display: block;
-  color: var(--dark);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
-
-nav li a:hover {
-  background-color: var(--info-light);
   color: var(--dark);
 }
+.list-scrolled{
+    color: var(--white);
+  }
 
+.navbar .menu2 li a{
+  display: block;
+  /* text-align: center; */
+  padding: 14px 16px;
+  text-decoration: none;
+  gap: 10px;
+
+}
+
+
+.navbar li a:hover {
+  background-color: var(--birucerah);
+  border-radius: 20%;
+  color: var(--white) !important;
+  fill: var(--white);
+}
+.navbar .toggle {
+  display: none;
+}
 .profile {
   float: left;
   overflow: hidden;
@@ -117,6 +137,7 @@ nav li a:hover {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   right: 4%;
+  text-align: left;
 }
 
 .profile-content .user,
@@ -125,7 +146,8 @@ nav li a:hover {
   flex-wrap: wrap;
   /* justify-content: center; */
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
+  gap: 20px;
 }
 
 .profile-content hr {
@@ -153,79 +175,128 @@ nav li a:hover {
   background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
+/* .dropdown:hover .dropdown-content {
   display: block;
-}
+} */
 
 .profile:hover .profile-content {
   display: block;
 }
 
+.toggle-content {
+  display: none;
+  position: fixed;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  max-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 4%;
+  justify-content: flex-start;
+}
+.toggle-content .user,
+.toggle-content .toggle-menu {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-scrolled{
+  background-color: var(--birucerahTR);
+  
+}
+
+
 .header-container {
   position: relative;
   overflow: hidden;
-  z-index: -1;
+  z-index: 1;
+  overflow: hidden;
 }
 
-.banner {
+.header-container .banner {
   display: flex;
   width: 100%;
   height: 100vh;
   background-image: url(src/img/bg1.png);
-  background-size: 500px;
+  background-size: 1000px;
   background-repeat: no-repeat;
   background-position: top right;
-  justify-content: space-around;
-  align-items: center;
+  overflow: hidden;
+  /* justify-content: space-around; */
+  /* align-items: center; */
 
 }
 
-.banner .text {
+.header-container .banner .text {
   background-color: transparent;
-  width: 40%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  margin-left: 1vw;
+  /* display: flex; */
+  /* flex-direction: column; */
+  margin-left: 5rem;
+  position: absolute;
+  top: 270px;
+  z-index: 3;
+  overflow: hidden;
 
 }
 
-.text span {
+.header-container .banner .text .teks-slogan {
   font-family: 'Poppins';
+  font-style: normal;
   font-weight: 800;
-  font-size: 2em;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  letter-spacing: 0.01em;
   gap: 0;
   overflow-y: hidden;
+  text-transform: uppercase;
 }
 
-.text p {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.header-container .banner .text .teks-animasi {
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
   overflow-y: hidden;
+  font-size: 1.3rem;
+}
+.typed-cursor {
+  font-size: 23px;
 }
 
-.banner .text .btn_all-produk {
-  width: 150px;
+.header-container .banner .text .btn-all-produk {
+  width: 200px;
+  height: 30px;
   overflow-y: hidden;
   z-index: 2;
   background-color: var(--hijau-gelap1);
   color: var(--white);
+  border: none;
+  cursor: pointer;
+}
+.header-container .banner .text .btn-all-produk:hover{
+  background-color: var(--info-light);
+  color: var(--hijau-gelap1);
 }
 
-.bg1 img {
-  /* position: relative; */
-  max-width: 600px;
-  max-height: 600px;
+.header-container .banner .img-makanan img {
+  position: absolute;
+  transform: rotate(-4deg);
+  width: 850px;
+  height: 900px;
+  right: 30px;
+  top: -5px;
   float: right;
-  justify-content: end;
+  overflow: hidden;
+  /* justify-content: end; */
   /* opacity: 0; */
 }
 
-.header-container #img1 {
+.header-container #img-es1 {
   position: absolute;
   width: 100vw;
-  height: 500px;
-  bottom: 1px;
+  height: 550px;
+  bottom: 0px;
   z-index: 1;
   object-fit: cover;
 }
@@ -241,10 +312,10 @@ nav li a:hover {
   overflow-y: hidden;
 }
 
-.slogan #img2 {
+.slogan #img-es2 {
   position: absolute;
   width: 100vw;
-  height: 400px;
+  height: 550px;
   /* top: 0; */
   transform: rotate(180deg);
   z-index: 1;
@@ -299,21 +370,21 @@ nav li a:hover {
   position: relative;
   background-color: var(--hijau-gelap1);
   background-image: url(../Website/src/svg/decor-01.svg);
-  /* background-size: 110vh; */
   background-repeat: no-repeat;
   background-position: left;
+  background-size: cover;
   width: 100%;
   min-height: 110vh;
-  color: var(--dark);
+  color: var(--white);
   text-align: center;
   overflow: hidden;
 }
-
+/* 
 .about-us .bg-about-us {
   position: absolute;
   z-index: 1;
   height: 100%;
-}
+} */
 
 .about-us .teks-about-us1,
 .about-us .teks-about-us2 {
@@ -324,18 +395,22 @@ nav li a:hover {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  color: var(--white);
+
 }
 
 .about-us .teks-about-us1 {
   background-image: url(../Website/src/svg/piring.svg);
-  background-size: 600px;
+  background-size: 80vh;
   background-repeat: no-repeat;
   background-position: center right;
+  background-position-x: 115%;
+  object-fit: cover;
 }
 
 .about-us .teks-about-us1 .tangan {
-  width: 600px;
-  height: 400px;
+  width: 30vw;
+  height: 50vh;
   margin-right: auto;
   margin-top: 2rem;
   margin-bottom: auto;
@@ -343,21 +418,21 @@ nav li a:hover {
 }
 
 .about-us .teks-about-us1 .daun1 {
-  width: 600px;
-  height: 400px;
+  width: 45vw;
+  height: 45vh;
   position: absolute;
   z-index: 1;
   top: -100px;
-  left: 300px;
+  left: 20vw;
 }
 
 .about-us .teks-about-us1 .daun2 {
-  width: 600px;
-  height: 450px;
+  width: 45vw;
+  height: 60vh;
   position: absolute;
   z-index: 1;
   bottom: 0;
-  left: -120px;
+  left: -7vw;
 }
 
 .about-us .teks-about-us2 {
@@ -393,11 +468,14 @@ nav li a:hover {
   background-image: url(../Website/src/svg/decor-02.svg);
   background-repeat: no-repeat;
   background-position: left;
+  background-size: cover;
 }
 .produk .top-produk{
   display: flex;
   flex-direction: row;
   height: 100px;
+  overflow: hidden;
+
 
 }
 .produk .top-produk h1 {
@@ -409,6 +487,8 @@ nav li a:hover {
   font-size: 4rem;
   line-height: 90px;
   margin-left: 13%;
+  overflow: hidden;
+
 }
 .produk .top-produk button{
   width: 200px;
@@ -431,10 +511,9 @@ nav li a:hover {
   flex-wrap: wrap;
   width: 80vw;
   min-height: 50vh;
-  max-height: 100vh;
+  max-height: 95vh;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: bisque; */
   z-index: 3;
   gap: 1rem;
   justify-content: space-between;
@@ -445,7 +524,7 @@ nav li a:hover {
   flex-direction: column;
   flex-wrap: wrap;
   width: 250px;
-  height: 320px;
+  height: 350px;
   background-color: var(--white);
   border-radius: 15px;
   box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, .1);
@@ -453,7 +532,7 @@ nav li a:hover {
 .produk .card .card-produk .img-produk{
   width: 100%;
   height: 200px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -465,17 +544,39 @@ nav li a:hover {
 .produk .card .card-produk span{
   margin-left: 15px;
 }
-.produk .card .card-produk button{
-  margin-left: auto;
-  margin-right: 15px;
+
+.produk .card .card-produk .input{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   margin-top: auto;
   margin-bottom: 15px;
+}
+
+.produk .card .card-produk .input .input-jumlah{
+  font-weight: 800;
+  font-size: 16px;
   width: 80px;
   height: 40px;
+  text-align: center;
+  background-color: var(--white);
+  border: solid 1px #222;
+  margin-left: 15px;
+}
+
+.produk .card .card-produk .input button{
+  display: flex;
+  margin-left: auto;
+  margin-right: 15px;
+  width: 60px;
+  height: 45px;
   border: none;
   background-color: var(--hijau-gelap1);
   color: var(--white);
   border-radius: 10px;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
 }
 .bottom {
   display: flex;
@@ -505,7 +606,7 @@ nav li a:hover {
 
 .bottom .slice {
   width: 100%;
-  height: 3rem;
+  height: 1rem;
   background-color: var(--hijau-gelap1);
 }
 
@@ -514,4 +615,245 @@ nav li a:hover {
   height: 200px;
   background-color: var(--hijau-gelap1);
   margin-top: 0.1rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    width: 100vw;
+    justify-content: space-between;
+    padding-left: 10px;
+    background-color: var(--birucerah);
+    gap: 0;
+  }
+  .navbar ul {
+    gap: 0;
+  }
+  .navbar .logo #lg1,
+  .navbar .logo #lg2{
+    font-family: Poppins;
+    font-size: 10px;
+    color: var(--birugelap);
+  }
+  .navbar .menu{
+    display: none;
+  }
+  .navbar .profile{
+    display: none;
+  }
+  .navbar .toggle {
+    display: block;
+    font-size: 22px;
+    padding: 0;
+  }
+  .toggler:hover .toggle-content{
+    display: block;
+  }
+
+  .header-container .banner {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-image: none;
+  overflow: hidden;
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  }
+
+  .header-container .banner .img-makanan img {
+  position: absolute;
+  transform: rotate(-10deg);
+  width: 450px;
+  height: 500px;
+  right: -10px;
+  top: 50px;
+  float: right;
+  overflow: hidden;
+  opacity: 20%;
+  /* justify-content: end; */
+  /* opacity: 0; */
+  }
+  .header-container .banner .text {
+  margin-left: 10px;
+  position: absolute;
+  top: 15%;
+  z-index: 3;
+  overflow: hidden;
+  }
+  .header-container .banner .text .teks-slogan{
+    font-size: 1.3rem;
+    line-height: normal;
+  }
+  .header-container .banner .text .teks-animasi{
+    font-size: 1rem;
+    line-height: normal;
+  }
+  .header-container #img-es1 {
+  position: absolute;
+  width: 100vw;
+  height: 250px;
+  bottom: 0px;
+  z-index: 1;
+  object-fit: cover;
+}
+
+  
+.slogan {
+  /* display: flex; */
+  width: 100%;
+  height: 50vh;
+  max-height: 200vh;
+  background-color: var(--white);
+  position: relative;
+  margin-top: 0;
+  overflow-y: hidden;
+}
+
+.slogan #img-es2 {
+  position: absolute;
+  width: 100vw;
+  height: 250px;
+  /* top: 0; */
+  transform: rotate(180deg);
+  z-index: 1;
+  object-fit: cover;
+}
+
+.slogan-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  z-index: 2;
+  position: absolute;
+  bottom: 0%;
+}
+
+.slogan-content .card {
+  width: 120px;
+  height: 170px;
+  background-color: var(--birucerah);
+  border-radius: 100% 100% 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slogan-content .card img {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.slogan-content .card h4 {
+  text-align: center;
+  margin-bottom: 1px;
+  font-size: 8px;
+  width: 100px;
+}
+
+.slogan-content .card p {
+  font-size: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: var(--hijau-gelap1);
+  background-image: none;
+  width: 100%;
+  color: var(--dark);
+  text-align: center;
+  overflow: hidden;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+/* .about-us .teks-about-us1,
+.about-us .teks-about-us2 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  z-index: 2;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+} */
+.about-us .teks-about-us1 {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../Website/src/svg/piring.svg);
+  background-size: 50vh;
+  background-repeat: no-repeat;
+  background-position:right;
+  background-position-x: 0;
+  object-fit: cover;
+}
+
+.about-us .teks-about-us1 .tangan {
+  width: 50vw;
+  height: 70vh;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: auto;
+  z-index: 2;
+}
+
+.about-us .teks-about-us1 .daun1 {
+  width: 35vw;
+  height: 45vh;
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  left: 60vw;
+}
+
+.about-us .teks-about-us1 .daun2 {
+  width: 35vw;
+  height: 45vh;
+  position: absolute;
+  z-index: 1;
+  bottom: -100;
+  left: 10;
+}
+
+.about-us .teks-about-us2 {
+  color: var(--white);
+  width: 100%;
+  z-index: 3;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.about-us .teks-about-us2 h1 {
+  font-family: 'Caveat Brush';
+  position: relative;
+  top: 0;
+  font-size: 3rem;
+  line-height: 100px;
+  letter-spacing: .1rem;
+  font-weight: 400;
+}
+
+.about-us p {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: normal;
+  max-width: 300px;
+}
 }

@@ -1,3 +1,19 @@
+<?php 
+  include '../../koneksi.php';
+    session_start();
+    if($_SESSION['status']!== "login"){
+      header("location:../../logout.php");
+    }
+    if($_SESSION['rule']!== "admin"){
+      echo "
+        <script> 
+          alert('Anda bukan administrator')
+          window.location = '../../index.php' 
+        </script>";
+      // header("location:../../logout.php");
+    }
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +48,7 @@
           <i class="fa-solid fa-house"></i>
           <span>Dashboard</span>
         </a>
-        <a href="../../admin/akun/akun.html" >
+        <a href="../../admin/akun/akun.php" >
           <i class="fa-solid fa-id-badge"></i>
           <span>Akun</span>
         </a>
@@ -44,12 +60,16 @@
           <i class="fa-solid fa-basket-shopping"></i>
           <span>Produk</span>
         </a>
-        <a href="../../index.html">
+        <a href="../../logout.php">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
           <span>Logout</span>
         </a>
       </div>
     </aside>
+
+    <div class="topbar">
+      
+    </div>
   </div>
   
 </body>

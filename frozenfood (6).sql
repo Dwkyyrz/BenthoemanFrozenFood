@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 04 Des 2022 pada 04.25
+-- Waktu pembuatan: 13 Des 2022 pada 02.14
 -- Versi server: 5.7.24
 -- Versi PHP: 7.4.19
 
@@ -28,18 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `idcart` int(11) NOT NULL,
-  `idproduct` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `idproduk` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `harga` float NOT NULL
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `cart`
 --
 
-INSERT INTO `cart` (`idcart`, `idproduct`, `jumlah`, `harga`) VALUES
-(1, 1, 3, 25.5);
+INSERT INTO `cart` (`id`, `iduser`, `idproduk`, `jumlah`, `status`) VALUES
+(1, 8, 12, 1, 'KERANJANG'),
+(2, 8, 12, 1, 'KERANJANG'),
+(3, 9, 13, 4, 'KERANJANG'),
+(4, 9, 15, 2, 'KERANJANG');
 
 -- --------------------------------------------------------
 
@@ -50,7 +54,7 @@ INSERT INTO `cart` (`idcart`, `idproduct`, `jumlah`, `harga`) VALUES
 CREATE TABLE `produk` (
   `idproduk` int(11) NOT NULL,
   `nama_produk` varchar(20) NOT NULL,
-  `harga` float NOT NULL,
+  `harga` int(11) NOT NULL,
   `img` varchar(200) NOT NULL,
   `detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -60,7 +64,12 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`idproduk`, `nama_produk`, `harga`, `img`, `detail`) VALUES
-(12, 'supri', 123211, 'vens1.png', 'makanananna');
+(12, 'supri', 123211, 'vens1.png', 'makanananna'),
+(13, 'somay', 123456, 'Eggy.png', 'maknana makanan'),
+(14, 'sosis', 132456, 'vens1.png', 'maknanan naknannan'),
+(15, 'pentol', 1234433, 'TestComplete.png', 'makaanan'),
+(16, 'tahu', 132435, 'apium-removebg-preview.png', 'makanananana'),
+(17, 'goreng', 1234567, 'Selenium.png', 'makanananananan');
 
 -- --------------------------------------------------------
 
@@ -74,7 +83,7 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `alamat` varchar(20) NOT NULL,
+  `alamat` text NOT NULL,
   `notelp` varchar(13) NOT NULL,
   `rule` varchar(100) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -90,7 +99,9 @@ INSERT INTO `user` (`id`, `nama`, `username`, `email`, `password`, `alamat`, `no
 (4, 'bima', 'bima123', 'bima@gmail.com', '7fcba392d4dcca33791a44cd892b2112', 'candipari', '812333233', 'client', '2022-11-20 13:37:44'),
 (5, 'BIMA PRAYOGA', 'asdfsa', 'asdf@gmail.com', '7fcba392d4dcca33791a44cd892b2112', 'asdf', 'aasdf', 'client', '2022-11-20 13:56:43'),
 (6, 'leo', 'leo1', 'liebima5@gmail.com', '657b298b04e033810343842f993c9817', 'cppppppp', '089699948423', 'client', '2022-11-21 14:05:50'),
-(7, 'BIMA PRAYOGA', 'bima1234', 'liebima5@gmail.com', '1efdb46c9c7edb360c6464f04849bd50', 'cppppppp', '0879646782', 'client', '2022-11-27 10:27:15');
+(7, 'BIMA PRAYOGA', 'bima1234', 'liebima5@gmail.com', '1efdb46c9c7edb360c6464f04849bd50', 'cppppppp', '0879646782', 'client', '2022-11-27 10:27:15'),
+(8, 'bima', 'bima000', 'liebima5@gmail.com', '6eedaeff2ab0a876cfe0bf1600db9207', 'candipari', '089699948423', 'client', '2022-12-12 03:59:32'),
+(9, 'rama', 'rama000', 'liebima5@gmail.com', '36226b453eb255f672f118a1ecc1e4ec', 'DESA CANDIPARI RT 04 RW 02, PORONG', '089699948423', 'client', '2022-12-12 06:33:32');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +111,7 @@ INSERT INTO `user` (`id`, `nama`, `username`, `email`, `password`, `alamat`, `no
 -- Indeks untuk tabel `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`idcart`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `produk`
@@ -122,19 +133,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `idcart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `idproduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idproduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

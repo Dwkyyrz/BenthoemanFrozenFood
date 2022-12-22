@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="tes.css">
+  <script src="https://kit.fontawesome.com/3119dd19b3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+  <div class="fcontainer">
+    <nav>
+      <div class="logo">
+        <span id="lg1">Benthoeman</span><br>
+        <span id="lg2">Frozenfood</span>
+      </div>
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Products </a>
+          <!-- <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div> -->
+        </li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+
+    <section class="konten">
+      <div id="typed-strings">
+        <p>Typed.js is a <strong><br><br>JavaScript Lorem ipsum dolor sit amet.</strong> library.</p>
+        <p>It <em>types</em> out sentences.</p>
+      </div>
+      <span id="typed"></span>
+    </section>
+
+    <section class="footer"></section>
+    
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- <script>
+    var typed = new Typed('.teks-animasi',{
+    strings: ['Benthoeman frozen food menyediakan aneka ragam makanan beku mulai dari olahan ayam, daging, sayur dan juga ikan.'],
+    
+    
+    });
+  </script> -->
+  <script>
+    var typed = new Typed('#typed', {
+      stringsElement: '#typed-strings',
+      typeSpeed: 35,
+      showCursor: true,
+      cursorChar: '|',
+      autoInsertCss: true,
+      backSpeed: 30,
+      loop: true,
+    });
+  </script>
+</body>
+</html>

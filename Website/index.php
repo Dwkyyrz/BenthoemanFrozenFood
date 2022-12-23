@@ -200,72 +200,32 @@ if($_SESSION['status'] !== "login"){
         <h1>Products</h1>
         <button>View All Products</button>
       </div>
+      <?php 
+            $query = mysqli_query($koneksi, "SELECT * FROM produk");
+            while ($data = mysqli_fetch_array($query)) {
+            ?>
       <div class="card">
         <div class="card-produk">
           <div class="img-produk">
             <img src="./admin/produk/img/<?= $data['img']?>" alt="">
           </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
+          <span><?= $data['nama_produk'] ?></span>
+          <span><?= $data['harga'] ?></span>
+
+          <form action="proses-cart.php" method="post">
+            <div class="input">
+              <input type="text" name="iduser" value="<?= $_SESSION['id']?>" class="form-control jumlah" id="" hidden>
+              <input type="text" name="idproduk" value="<?= $data['idproduk']?>" class="form-control jumlah" id="" hidden>
+              <input type="number" name="jumlah" value="1" class="input-jumlah">
+              <button>
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+            </div>
+          </form>
+
         </div>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="src/img/lumpia.jpg" alt="">
-          </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
-        </div>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="src/img/lumpia.jpg" alt="">
-          </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
-        </div>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="src/img/lumpia.jpg" alt="">
-          </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
-        </div>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="src/img/lumpia.jpg" alt="">
-          </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
-        </div>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="src/img/lumpia.jpg" alt="">
-          </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
-        </div>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="src/img/lumpia.jpg" alt="">
-          </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
-        </div>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="src/img/lumpia.jpg" alt="">
-          </div>
-          <span>Nama Produk</span>
-          <span>Rp. 10.000</span>
-          <button>Buy</button>
-        </div>
-      </div>
+      <?php } ?>
+        
     </section>
 
     <section class="bottom" id="kontak">

@@ -12,7 +12,7 @@ if($simpan_cart){
     echo "
         <script>
             alert('Barang telah masuk ke keranjang anda');
-            window.location = 'card.php';
+            window.location = 'index.php';
         </script>
     ";
 }else{
@@ -20,7 +20,7 @@ if($simpan_cart){
     echo "
         <script>
             alert('Barang gagal masuk ke keranjang anda');
-            window.location = 'card.php';
+            window.location = 'index.php';
         </script>
     ";
 }

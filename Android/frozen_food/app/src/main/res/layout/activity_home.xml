@@ -17,6 +17,7 @@
         android:background="@drawable/bg_header">
 
         <TextView
+            android:id="@+id/nama_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -27,6 +28,7 @@
             android:text="Hi, Azzam">
         </TextView>
         <TextView
+            android:id="@+id/email_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
@@ -66,12 +68,12 @@
             </com.example.frozen_food.widget.Search_bar>
 
             <ImageButton
+                android:id="@+id/home_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:background="@color/appbar"
-                android:src="@drawable/shopping_cart"
-                android:onClick="cart">
+                android:src="@drawable/shopping_cart">
             </ImageButton>
 
             <ImageButton
@@ -85,6 +87,9 @@
         </LinearLayout>
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="490dp">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -187,6 +192,7 @@
                             android:background="@drawable/card"
                             android:gravity="center">
                             <ImageView
+                                android:id="@+id/iv_gambar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="120dp"
                                 android:src="@drawable/food">
@@ -197,12 +203,13 @@
                                 android:layout_marginTop="5dp"
                                 android:layout_marginBottom="5dp"
                                 android:text="Bakso"
+                                android:id="@+id/tv_namaproduk"
                                 android:textColor="@color/black"
                                 android:textAlignment="center"
-                                android:textSize="18dp"
-                                >
+                                android:textSize="18dp">
                             </TextView>
                             <TextView
+                                android:id="@+id/tv_harga"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Rp. 11.500"
@@ -259,49 +266,101 @@
         </TableLayout>
 
     </LinearLayout>
-
-
+    </ScrollView>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/white"
-        android:gravity="center">
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/medical_history">
-        </ImageButton>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/home">
-        </ImageButton>
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/fast_food">
-        </ImageButton>
-        <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/white"
-            android:src="@drawable/email">
-        </ImageButton>
+            <ImageButton
+                android:id="@+id/ib_deskripsi"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_home"></ImageButton>
 
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_produk"></ImageButton>
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_chat"></ImageButton>
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_riwayat"></ImageButton>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="-10dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Beranda"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Produk"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Chat"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:text="Riwayat"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardCornerRadius="20dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="10dp"
+    android:background="#f4f6f7">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/card"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/food"
+            android:id="@+id/Iv_picture">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id produk"
+            android:visibility="gone">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_namaProduk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Bakso"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="18dp">
+        </TextView>
+        <TextView
+            android:id="@+id/tv_harga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Rp. 11.500"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textColor="@color/black"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Beli"
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:background="@drawable/bg_slide"
+            android:textColor="@color/white"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

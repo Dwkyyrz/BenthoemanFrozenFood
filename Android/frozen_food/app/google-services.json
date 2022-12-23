@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "697638805158",
+    "project_id": "frozen-food-c9e9e",
+    "storage_bucket": "frozen-food-c9e9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697638805158:android:0235c2da278a0df0649e67",
+        "android_client_info": {
+          "package_name": "com.example.frozen_food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697638805158-7saddk4o1h8ud4vgtf2ink28flvj9b6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEAEPyoraZ3c6yP-7dInpahr0QCKXpsHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697638805158-7saddk4o1h8ud4vgtf2ink28flvj9b6m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

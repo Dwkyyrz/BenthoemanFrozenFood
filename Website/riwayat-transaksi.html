@@ -1,11 +1,3 @@
-<?php 
-include 'koneksi.php';
-session_start();
-if($_SESSION['status'] !== "login"){
-  header("location:registrasi.html");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +7,7 @@ if($_SESSION['status'] !== "login"){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benthoeman Frozenfood</title>
   <link rel="icon" type="image/x-icon" href="../Website/src/img/bg2.png">
-  <link rel="stylesheet" href="indexstyle.css">
+  <link rel="stylesheet" href="riwayat-transaksi.css">
   <script src="https://kit.fontawesome.com/3119dd19b3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -75,7 +67,7 @@ if($_SESSION['status'] !== "login"){
               </span>
             </a>
             <hr>
-            <a href="client.php" class="akun">
+            <a href="client.html" class="akun">
               <i class="fa-solid fa-house"></i>
               <span>Akun</span>
             </a>
@@ -132,119 +124,25 @@ if($_SESSION['status'] !== "login"){
             </a>
           </div>
         </li>
-
       </ul>
-
     </nav>
 
-
-
-    <section class="header-container">
-      <div class="banner">
-        <!-- Teks -->
-        <div class="text">
-          <span class="teks-slogan">Fresh food, <br>For your mood</span><br>
-          <span class="teks-animasi"></span><br>
-          <a href="produk.html">
-            <button type="button" class="btn-all-produk">View All Products ></button><br>
-          </a>
-        </div>
-        <!-- Gambar-->
-        <div class="img-makanan">
-          <img src="src/img/bg2.png" alt="">
-        </div>
-      </div>
-      <img id="img-es1" src="src/img/es.png">
+    <section class="konten">
+      <h1>RIWAYAT TRANSAKSI</h1>
+      <table border="1">
+        <tr>
+          <th>No</th>
+          <th>Nama Barang</th>
+          <th >Detail</th>
+          <th>Harga</th>
+          <th>Tanggal Pembelian</th>
+          <th>Tanggal Diterima</th>
+          <th>Status</th>
+        </tr>
+      </table>
     </section>
 
-    <!-- Konten 1 -->
-    <section class="slogan">
-      <img id="img-es2" src="src/img/es2.png" alt="">
-
-      <div class="slogan-content">
-        <div class="card">
-          <img src="../Website/src/img/cloche.svg" alt="">
-          <h4>FRESH & BERKUALITAS</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
-        </div>
-        <div class="card">
-          <img src="../Website/src/img/garpu.svg" alt="">
-          <h4>SIAP SAJI</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
-        </div>
-        <div class="card">
-          <img src="../Website/src/img/delivery.svg" alt="">
-          <h4>PENGIRIMAN CEPAT</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
-        </div>
-      </div>
-    </section>
-    <!-- End of Konten 1-->
-
-    <section class="about-us" id="about-us">
-      <div class="teks-about-us1">
-        <img src="../Website/src/svg/daun.svg" class="daun1">
-        <img src="../Website/src/svg/tangan.svg" class="tangan">
-        <img src="../Website/src/svg/daun.svg" class="daun2">
-      </div>
-      <div class="teks-about-us2">
-        <h1>About Us</h1>
-        <p>Benthoeman Frozenfood menyediakan aneka ragam makanan beku mulai dari olahan ayam, daging, sayuran dan juga
-          ikan</p>
-      </div>
-    </section>
-
-    <section class="produk" id="produk">
-      <div class="top-produk">
-        <h1>Products</h1>
-        <a href="produk.html" class="button-produk">
-          <button><b>View All Products >></b></button>
-        </a>
-      </div>
-
-      <div class="card">
-          <?php 
-            $query = mysqli_query($koneksi, "SELECT * FROM produk");
-            while ($data = mysqli_fetch_array($query)) {
-          ?>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="./admin/produk/img/<?= $data['img']?>" alt="">
-          </div>
-          <span><?= $data['nama_produk'] ?></span>
-          <span><?= $data['harga'] ?></span>
-
-          <form action="proses-cart.php" method="post">
-            <div class="input">
-              <input type="text" name="iduser" value="<?= $_SESSION['id']?>" class="form-control jumlah" id="" hidden>
-              <input type="text" name="idproduk" value="<?= $data['idproduk']?>" class="form-control jumlah" id="" hidden>
-              <input type="number" name="jumlah" min="1" value="1" class="input-jumlah">
-              <button>
-                <i class="fa-solid fa-cart-plus"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-        <?php } ?>
-
-
-
-      </div>
-    </section>
-
-    <section class="bottom" id="kontak">
-      <div class="teks">
-        <h1>BISA PESAN MELALUI MOBILE APPS</h1>
-        <p>Tersedia juga pemesanan produk frozen food Benthoeman melalui mobile apps Android yang dapat anda pesan
-          secara mudah</p>
-      </div>
-      <div class="ornamen">
-        <div class="slice"></div>
-        <div class="bottom-bot"></div>
-      </div>
-    </section>
   </div>
-
 
   <script src="index.js"></script>
   <!-- Search -->

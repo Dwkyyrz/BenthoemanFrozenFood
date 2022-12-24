@@ -1,9 +1,14 @@
 <?php 
 include 'koneksi.php';
 session_start();
+session_regenerate_id();
 if($_SESSION['status'] !== "login"){
   header("location:registrasi.html");
 }
+$id = $_SESSION['id'];
+$query = "SELECT * FROM user WHERE id='$id'";
+$hasil = mysqli_query($koneksi, $query);
+$data = mysqli_fetch_array($hasil);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +20,7 @@ if($_SESSION['status'] !== "login"){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benthoeman Frozenfood</title>
   <link rel="icon" type="image/x-icon" href="../Website/src/img/bg2.png">
-  <link rel="stylesheet" href="indexstyle.css">
+  <link rel="stylesheet" href="client.css">
   <script src="https://kit.fontawesome.com/3119dd19b3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -36,7 +41,6 @@ if($_SESSION['status'] !== "login"){
         <li><a href="#produk" class="list-menu">Products </a></li>
         <li><a href="#kontak" class="list-menu">Contact</a></li>
       </ul>
-
 
       <ul class="menu2">
         <li>
@@ -70,7 +74,7 @@ if($_SESSION['status'] !== "login"){
               </div>
               <span>
                 <?php 
-                  echo $_SESSION['username'];
+                  echo "".$data['nama']."";
                 ?>
               </span>
             </a>
@@ -105,7 +109,7 @@ if($_SESSION['status'] !== "login"){
 
               <span>
                 <?php 
-                    echo $_SESSION['username'];
+                    echo "".$data['nama'].""
                   ?>
               </span>
             </a>
@@ -132,119 +136,100 @@ if($_SESSION['status'] !== "login"){
             </a>
           </div>
         </li>
-
       </ul>
-
     </nav>
 
-
-
-    <section class="header-container">
-      <div class="banner">
-        <!-- Teks -->
-        <div class="text">
-          <span class="teks-slogan">Fresh food, <br>For your mood</span><br>
-          <span class="teks-animasi"></span><br>
-          <a href="produk.html">
-            <button type="button" class="btn-all-produk">View All Products ></button><br>
-          </a>
-        </div>
-        <!-- Gambar-->
-        <div class="img-makanan">
-          <img src="src/img/bg2.png" alt="">
-        </div>
+    <section class="konten">
+      <div class="path">
+        <a href="index.php">Homepage </a>
+        /
+        <a href="client.php"> My Account</a>
       </div>
-      <img id="img-es1" src="src/img/es.png">
-    </section>
-
-    <!-- Konten 1 -->
-    <section class="slogan">
-      <img id="img-es2" src="src/img/es2.png" alt="">
-
-      <div class="slogan-content">
-        <div class="card">
-          <img src="../Website/src/img/cloche.svg" alt="">
-          <h4>FRESH & BERKUALITAS</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
+      <div class="wrapper-akun">
+        <div class="menu-akun">
+          <h1>My Account</h1>
+          <ul>
+            <li><a href="#" class="list-menu-akun1 active-menu-akun" onclick="showform1()">
+              <i class="fa-solid fa-user"></i>
+                Account Details
+            </a></li>
+            <li><a href="#" class="list-menu-akun2" onclick="showform2()">
+              <i class="fa-solid fa-basket-shopping"></i>
+                My Order
+            </a></li>
+          </ul>
         </div>
-        <div class="card">
-          <img src="../Website/src/img/garpu.svg" alt="">
-          <h4>SIAP SAJI</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
-        </div>
-        <div class="card">
-          <img src="../Website/src/img/delivery.svg" alt="">
-          <h4>PENGIRIMAN CEPAT</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
-        </div>
-      </div>
-    </section>
-    <!-- End of Konten 1-->
+  
+        <div class="form-akun">
 
-    <section class="about-us" id="about-us">
-      <div class="teks-about-us1">
-        <img src="../Website/src/svg/daun.svg" class="daun1">
-        <img src="../Website/src/svg/tangan.svg" class="tangan">
-        <img src="../Website/src/svg/daun.svg" class="daun2">
-      </div>
-      <div class="teks-about-us2">
-        <h1>About Us</h1>
-        <p>Benthoeman Frozenfood menyediakan aneka ragam makanan beku mulai dari olahan ayam, daging, sayuran dan juga
-          ikan</p>
-      </div>
-    </section>
-
-    <section class="produk" id="produk">
-      <div class="top-produk">
-        <h1>Products</h1>
-        <a href="produk.html" class="button-produk">
-          <button><b>View All Products >></b></button>
-        </a>
-      </div>
-
-      <div class="card">
-          <?php 
-            $query = mysqli_query($koneksi, "SELECT * FROM produk");
-            while ($data = mysqli_fetch_array($query)) {
-          ?>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="./admin/produk/img/<?= $data['img']?>" alt="">
-          </div>
-          <span><?= $data['nama_produk'] ?></span>
-          <span><?= $data['harga'] ?></span>
-
-          <form action="proses-cart.php" method="post">
-            <div class="input">
-              <input type="text" name="iduser" value="<?= $_SESSION['id']?>" class="form-control jumlah" id="" hidden>
-              <input type="text" name="idproduk" value="<?= $data['idproduk']?>" class="form-control jumlah" id="" hidden>
-              <input type="number" name="jumlah" min="1" value="1" class="input-jumlah">
-              <button>
-                <i class="fa-solid fa-cart-plus"></i>
-              </button>
+            <div class="MyAccount" id="MyAccount">
+              <h1>Account Details</h1>
+              <?php if(isset($_SESSION['proses'])): ?>
+                <div class="alertEdit" id="alertEdit">
+                  <p>
+                    <?php 
+                    echo $_SESSION['proses'];
+                    ?>
+                  </p>
+                  <i class="fa-solid fa-xmark" onclick="closeAlert()"></i>
+                </div>
+              <?php 
+                unset($_SESSION['proses']);
+                endif;
+                ?>
+              <div class="wrapper">
+                <!--Personal-->
+                <div class="personal">
+                  <h4>Personal Information</h4>
+                  <hr>
+                  <form action="client-edit-personal.php" method="POST" class="form-MyAccount-personal">
+                    <input type="text" name="id" id="id" value="<?php echo $_SESSION['id']; ?>" hidden>
+                    <label for="name">Name</label>
+                    <input type="text" name="nama" id="name" placeholder="Your Name" value="<?php echo "".$data['nama']."" ?>" required>
+                    <br>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Your Username" value="<?php echo "".$data['username']."" ?>" required>
+                    <br>
+                    <label for="address">Address</label>
+                    <input type="text" name="alamat" id="address" placeholder="Your Address" value="<?php echo "".$data['alamat']."" ?>" required>
+                    <br>
+                    <label for="number">Phone Number</label>
+                    <input type="tel" name="nomor" id="number" placeholder="*08123456789" value="<?php echo "".$data['notelp']."" ?>" required>
+                    <br>
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" placeholder="Your E-mail" value="<?php echo "".$data['email']."" ?>" required>
+                    <br>
+                    <input type="submit" id="save-btn" value="SAVE">
+                  </form>
+                </div>
+              </div>
             </div>
-          </form>
+
+
+            <div class="MyOrder" id="MyOrder">
+              <h1>Your Order</h1>
+              <table border="1">
+                <tr>
+                  <th>No</th>
+                  <th>Nama Barang</th>
+                  <th>Detail</th>
+                  <th>Harga</th>
+                  <th>Tanggal Pembelian</th>
+                  <!-- <th>Tanggal Diterima</th>
+                  <th>Status</th> -->
+                </tr>
+              </table>
+            </div>
         </div>
-        <?php } ?>
-
-
-
       </div>
     </section>
 
-    <section class="bottom" id="kontak">
-      <div class="teks">
-        <h1>BISA PESAN MELALUI MOBILE APPS</h1>
-        <p>Tersedia juga pemesanan produk frozen food Benthoeman melalui mobile apps Android yang dapat anda pesan
-          secara mudah</p>
-      </div>
-      <div class="ornamen">
-        <div class="slice"></div>
-        <div class="bottom-bot"></div>
-      </div>
-    </section>
+    <?php 
+      mysqli_close($koneksi);
+    ?> 
+
+
   </div>
-
 
   <script src="index.js"></script>
   <!-- Search -->

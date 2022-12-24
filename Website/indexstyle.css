@@ -99,17 +99,18 @@ body {
   /* text-align: center; */
   padding: 14px 16px;
   text-decoration: none;
-  gap: 10px;
 
 }
 
 
-.navbar li a:hover {
+.navbar .menu li a:hover,
+.navbar .menu2 li a:hover {
   background-color: var(--birucerah);
   border-radius: 20%;
-  color: var(--white) !important;
+  color: var(--white);
   fill: var(--white);
 }
+
 .navbar .toggle {
   display: none;
 }
@@ -142,12 +143,10 @@ body {
 
 .profile-content .user,
 .profile-content .akun {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
-  /* justify-content: center; */
-  align-items: center;
-  /* gap: 10px; */
-  gap: 20px;
+  align-items: center !important;
+  gap: 10px !important;
 }
 
 .profile-content hr {
@@ -159,7 +158,7 @@ body {
 }
 
 .profile-content .user:hover {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .profile-content a {
@@ -172,7 +171,10 @@ body {
 }
 
 .profile-content a:hover {
-  background-color: #ddd;
+  background-color: #ddd !important;
+  border-radius: 0% !important;
+  color: black !important;
+  fill: black !important;
 }
 
 /* .dropdown:hover .dropdown-content {
@@ -490,16 +492,19 @@ body {
   overflow: hidden;
 
 }
-.produk .top-produk button{
-  width: 200px;
-  height: 30px;
+.produk .top-produk .button-produk{
   margin-top: auto;
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: 10%;
+}
+.produk .top-produk button{
+  width: 200px;
+  height: 30px;
   border: none;
+  cursor: pointer;
   background-color: var(--white);
-  color: var(--hijau-gelap1);  
+  color: var(--hijau-gelap1);
 }
 .produk .top-produk button:hover{
   background-color: var(--info-light);
@@ -562,6 +567,7 @@ body {
   background-color: var(--white);
   border: solid 1px #222;
   margin-left: 15px;
+  border-radius: 10px;
 }
 
 .produk .card .card-produk .input button{

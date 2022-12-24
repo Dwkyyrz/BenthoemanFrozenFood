@@ -15,7 +15,12 @@ $adm = mysqli_fetch_array($admin);
 if ($adm_cek > 0) {
   session_start();
   $_SESSION['id'] = $adm['id'];
+  $_SESSION['nama'] = $adm['nama'];
   $_SESSION['username'] = $username;
+  $_SESSION['email'] = $adm['email'];
+  $_SESSION['alamat'] = $adm['alamat'];
+  $_SESSION['pwd'] = $adm['password'];
+  $_SESSION['notelp'] = $adm['notelp'];
   $_SESSION['status'] = "login";
   $_SESSION['rule'] = "admin";
   header("location:../Website/admin/dashboard/dashboard.php");
@@ -23,7 +28,12 @@ if ($adm_cek > 0) {
 else if ($cek > 0) {
   session_start();
   $_SESSION['id'] = $user['id'];
+  $_SESSION['nama'] = $user['nama'];
   $_SESSION['username'] = $username;
+  $_SESSION['email'] = $user['email'];
+  $_SESSION['pwd'] = $user['password'];
+  $_SESSION['alamat'] = $user['alamat'];
+  $_SESSION['notelp'] = $user['notelp'];
   $_SESSION['status'] = "login";
   $_SESSION['rule'] = "user";
   header("location:index.php");
@@ -45,9 +55,8 @@ else if ($password== md5("")) {
 }
 else {
   echo "<script> 
-            alert('Login gagal! Pastikan Username dan Password benar!')
-            window.location = 'registrasi.html' 
-        </script>";
+  alert('Login gagal! Username atau Password salah')
+  window.location = 'registrasi.html' </script>";
   // header("location:registrasi.html");
 }
 ?>

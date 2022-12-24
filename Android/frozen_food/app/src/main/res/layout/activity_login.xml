@@ -62,7 +62,6 @@
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -85,7 +84,6 @@
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -93,7 +91,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_login"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -127,7 +124,6 @@
             android:textSize="16dp">
         </TextView>
         <TextView
-            android:id="@+id/tv_registrasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"

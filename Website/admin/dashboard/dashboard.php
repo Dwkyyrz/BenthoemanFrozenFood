@@ -57,7 +57,7 @@
       <div class="sidebar">
         <ul>
           <li >
-            <a href="../../admin/dashboard/dashboard.html" class="active">
+            <a href="../../admin/dashboard/dashboard.php" class="active">
               <i class="fa-solid fa-house"></i>
               <span>Dashboard</span>
             </a>
@@ -69,13 +69,13 @@
             </a>
           </li>
           <li>
-            <a href="../../admin/klien/klien.html">
+            <a href="../../admin/klien/klien.php">
               <i class="fa-solid fa-users"></i>
               <span>Klien</span>
             </a>
           </li>
           <li>
-            <a href="../../admin/produk/produk.html">
+            <a href="../../admin/produk/produk.php">
               <i class="fa-solid fa-basket-shopping"></i>
               <span>Produk</span>
             </a>

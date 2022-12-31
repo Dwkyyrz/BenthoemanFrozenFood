@@ -1,7 +1,7 @@
 <?php 
 include 'koneksi.php';
 session_start();
-session_regenerate_id();
+// session_regenerate_id();
 if($_SESSION['status'] !== "login"){
   header("location:registrasi.html");
 }

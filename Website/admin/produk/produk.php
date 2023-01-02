@@ -141,7 +141,7 @@
                   ?>
               <tr>
                 <td scope="row"><?php echo $no++ ?></td>
-                <td><img src="img/<?php echo $data['img'] ?>" alt="" width="150px" height="100px"></td>
+                <td><img src="img/<?php echo $data['img'] ?>" alt="" width="150px" height="120px"></td>
                 <td><?php echo $data['nama_produk'] ?></td>
                 <td>Rp<?php echo $data['harga'] ?></td>
                 <td><?php echo $data['detail'] ?></td>

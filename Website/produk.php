@@ -1,5 +1,19 @@
+<?php 
+include 'koneksi.php';
+session_start();
+if($_SESSION['status'] !== "login"){
+  header("location:registrasi.html");
+}
+$id = $_SESSION['id'];
+$query = "SELECT * FROM user WHERE id='$id'";
+$hasil = mysqli_query($koneksi, $query);
+$data = mysqli_fetch_array($hasil);
+?>
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 
 <head>
   <meta charset="UTF-8">
@@ -7,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benthoeman Frozenfood</title>
   <link rel="icon" type="image/x-icon" href="../Website/src/img/bg2.png">
-  <link rel="stylesheet" href="riwayat-transaksi.css">
+  <link rel="stylesheet" href="produk.css">
   <script src="https://kit.fontawesome.com/3119dd19b3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -67,7 +81,7 @@
               </span>
             </a>
             <hr>
-            <a href="client.html" class="akun">
+            <a href="client.php" class="akun">
               <i class="fa-solid fa-house"></i>
               <span>Akun</span>
             </a>
@@ -128,18 +142,34 @@
     </nav>
 
     <section class="konten">
-      <h1>RIWAYAT TRANSAKSI</h1>
-      <table border="1">
-        <tr>
-          <th>No</th>
-          <th>Nama Barang</th>
-          <th >Detail</th>
-          <th>Harga</th>
-          <th>Tanggal Pembelian</th>
-          <th>Tanggal Diterima</th>
-          <th>Status</th>
-        </tr>
-      </table>
+      <h1>PRODUK</h1>
+      <div class="container-produk">
+        <div class="card">
+            <?php 
+              $query = mysqli_query($koneksi, "SELECT * FROM produk");
+              while ($data = mysqli_fetch_array($query)) {
+            ?>
+          <div class="card-produk">
+            <div class="img-produk">
+              <img src="./admin/produk/img/<?= $data['img']?>" alt="">
+            </div>
+            <span><?= $data['nama_produk'] ?></span>
+            <span>Rp. <?= $data['harga'] ?></span>
+  
+            <form action="proses-cart.php" method="post">
+              <div class="input">
+                <input type="text" name="iduser" value="<?= $_SESSION['id']?>" class="form-control jumlah" id="" hidden>
+                <input type="text" name="idproduk" value="<?= $data['idproduk']?>" class="form-control jumlah" id="" hidden>
+                <input type="number" name="jumlah" min="1" value="1" class="input-jumlah">
+                <button>
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <?php } ?>
+        </div>
+      </div>
     </section>
 
   </div>

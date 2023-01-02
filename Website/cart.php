@@ -5,8 +5,10 @@ $id = $_SESSION['id'];
 if($_SESSION['status'] !== "login"){
   header("location:registrasi.html");
 }
-
-
+$id = $_SESSION['id'];
+$query = "SELECT * FROM user WHERE id='$id'";
+$hasil = mysqli_query($koneksi, $query);
+$data = mysqli_fetch_array($hasil);
 ?>
 
 <!DOCTYPE html>
@@ -33,9 +35,9 @@ if($_SESSION['status'] !== "login"){
 
       <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="./card.php">Products </a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.php#about-us">About</a></li>
+        <li><a href="produk.php">Products </a></li>
+        <li><a href="index.php#kontak">Contact</a></li>
       </ul>
 
 
@@ -72,22 +74,18 @@ if($_SESSION['status'] !== "login"){
               </div>
               <span>
                 <?php 
-                  echo $_SESSION['username'];
+                  echo $data['nama'];
                 ?>
               </span>
             </a>
             <hr>
-            <a href="#" class="akun">
+            <a href="client.php" class="akun">
               <i class="fa-solid fa-house"></i>
-              <span>My Account</span>
-            </a>
-            <a href="#" class="akun">
-              <i class="fa-solid fa-gear"></i>
-              <span>Settings</span>
+              <span>Akun</span>
             </a>
             <a href="logout.php" class="akun">
               <i class="fa-solid fa-right-from-bracket"></i>
-              <span>Log out</span>
+              <span>Keluar</span>
             </a>
           </div>  
         </li>
@@ -106,35 +104,50 @@ if($_SESSION['status'] !== "login"){
             <th>Total Harga</th>
             <th>Hapus</th>
           </tr>
-          <form action="./proses-cekout.php" method="post">
-
-            <?php 
-          $total_harga = 0;
-          $total_bayar = 0;
-          $total_item = 0;
-            $sql_cart = mysqli_query($koneksi,"SELECT * FROM cart WHERE iduser = '$id' AND status='KERANJANG'");
+          <form action="proses-cekout.php" method="post">
+          <?php 
+            $no = 1;
+            $total_item = 0;
+            $total_bayar = 0;
+            $total = 0;
+            $jmlh_barang = 0;
+            $sql_cart = mysqli_query($koneksi,"SELECT DISTINCT id, iduser, idproduk, status FROM cart WHERE iduser = '$id' AND status = 'KERANJANG'");
             while($cart = mysqli_fetch_array($sql_cart)){
+              
+              $sql_jumlah = mysqli_query($koneksi,"SELECT * FROM cart WHERE iduser = '$id' AND idproduk = '".$cart['idproduk']."' AND status = 'KERANJANG'");
+              while($jumlah = mysqli_fetch_array($sql_jumlah)){
+                $jumlah_total = $jumlah['jumlah'];
+
+                $jmlh_barang += $jumlah_total;
+              }
+              
               
               $sql_produk = mysqli_query($koneksi,"SELECT * FROM produk WHERE idproduk = '".$cart['idproduk']."'");
               $produk = mysqli_fetch_array($sql_produk);
-              $total_harga = $produk['harga'] * $cart['jumlah'];
+              
+              $total = $produk['harga'] * $jmlh_barang;
+              $total_harga = $produk['harga'] * $jmlh_barang;
+              $total_item += $jmlh_barang;
               $total_bayar += $total_harga;
-              $total_item += $cart['jumlah'];
+
           ?>
+          
           <!-- contoh produk -->
           <tr>
-            <input type="text" name="id[]" value="<?php echo $cart['id'] ?>" hidden>
             <td class="td-produk">
+            <input type="text" name="id" value="<?php echo $cart['id'] ?>" hidden>
+            <input type="text" name="iduser" value="<?php echo $cart['iduser'] ?>" hidden>
               <img src="admin/produk/img/<?php echo $produk['img'] ?>" alt="">
               <div class="produk-detail">
                 <span>nama produk: <?php echo $produk['nama_produk'] ?></span>
                 <span>harga: Rp. <?php echo $produk['harga'] ?></span>
               </div>
             </td>
-            <td><?php echo $cart['jumlah'] ?></td>
+            <td><?php echo $jmlh_barang?></td>
             <td>Rp. <?php echo $total_harga ?></td>
-            <td><a href="./hapus-cart.php?id=<?= $cart['id'] ?>">hapus</a></td>
+            <td><a href="hapus-cart.php?id=<?= $cart['id'] ?>">hapus</a></td>
           </tr>
+          <?php $jmlh_barang = 0; ?>
           <?php } ?>
         </table>
         <!-- END of Tabel -->
@@ -144,12 +157,12 @@ if($_SESSION['status'] !== "login"){
           <h3>Rincian Belanja</h3>
           <span>Total Item: <?php echo $total_item ?></span>
           <span>Total Harga: <?php echo $total_bayar ?></span>
+          <h4>Metode pembayaran : COD (cash on delivery)<br>*hanya mendukung pembayaran COD area sidoarjo</h4>
           <button type="submit" value="order">Order</button>
         </div>
       </form>
         <!-- end of Pesanan -->
       </div>
-
     </div>
 
     <section class="bottom">

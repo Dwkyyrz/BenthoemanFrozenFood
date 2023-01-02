@@ -1,6 +1,6 @@
 <?php 
     include '../../koneksi.php';
-    $ekstensi_diperbolehkan	= array('png','jpg');
+    $ekstensi_diperbolehkan	= array('png','jpg', 'jpeg');
     $img = $_FILES['file']['name'];
     $x = explode('.', $img);
     $ekstensi = strtolower(end($x));
@@ -9,7 +9,7 @@
 
     $fotolama = $_POST['foto-lama'];
     $id = $_POST['id'];
-    $nama = $_POST['nama_produk'];
+    $nama = $_POST['nama'];
     $harga = $_POST['harga'];
     $detail = $_POST['detail'];
 

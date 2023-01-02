@@ -4,6 +4,10 @@ session_start();
 if($_SESSION['status'] !== "login"){
   header("location:registrasi.html");
 }
+$id = $_SESSION['id'];
+$query = "SELECT * FROM user WHERE id='$id'";
+$hasil = mysqli_query($koneksi, $query);
+$data = mysqli_fetch_array($hasil);
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +74,7 @@ if($_SESSION['status'] !== "login"){
               </div>
               <span>
                 <?php 
-                  echo $_SESSION['username'];
+                  echo $data['nama'];
                 ?>
               </span>
             </a>
@@ -145,7 +149,7 @@ if($_SESSION['status'] !== "login"){
         <div class="text">
           <span class="teks-slogan">Fresh food, <br>For your mood</span><br>
           <span class="teks-animasi"></span><br>
-          <a href="produk.html">
+          <a href="produk.php">
             <button type="button" class="btn-all-produk">View All Products ></button><br>
           </a>
         </div>
@@ -197,7 +201,7 @@ if($_SESSION['status'] !== "login"){
     <section class="produk" id="produk">
       <div class="top-produk">
         <h1>Products</h1>
-        <a href="produk.html" class="button-produk">
+        <a href="produk.php" class="button-produk">
           <button><b>View All Products >></b></button>
         </a>
       </div>
@@ -226,9 +230,6 @@ if($_SESSION['status'] !== "login"){
           </form>
         </div>
         <?php } ?>
-
-
-
       </div>
     </section>
 

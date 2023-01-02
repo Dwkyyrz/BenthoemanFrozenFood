@@ -5,6 +5,7 @@ session_start();
 if($_SESSION['status'] !== "login"){
   header("location:registrasi.html");
 }
+
 $id = $_SESSION['id'];
 $query = "SELECT * FROM user WHERE id='$id'";
 $hasil = mysqli_query($koneksi, $query);
@@ -37,9 +38,9 @@ $data = mysqli_fetch_array($hasil);
 
       <ul class="menu">
         <li><a href="index.php" class="list-menu">Home</a></li>
-        <li><a href="#about-us" class="list-menu">About</a></li>
-        <li><a href="#produk" class="list-menu">Products </a></li>
-        <li><a href="#kontak" class="list-menu">Contact</a></li>
+        <li><a href="index.php#about-us" class="list-menu">About</a></li>
+        <li><a href="produk.php" class="list-menu">Products </a></li>
+        <li><a href="index.php#kontak" class="list-menu">Contact</a></li>
       </ul>
 
       <ul class="menu2">
@@ -208,16 +209,37 @@ $data = mysqli_fetch_array($hasil);
 
             <div class="MyOrder" id="MyOrder">
               <h1>Your Order</h1>
-              <table border="1">
-                <tr>
+              <table>
+                <thead>
                   <th>No</th>
+                  <th>Foto</th>
                   <th>Nama Barang</th>
-                  <th>Detail</th>
                   <th>Harga</th>
-                  <th>Tanggal Pembelian</th>
-                  <!-- <th>Tanggal Diterima</th>
-                  <th>Status</th> -->
-                </tr>
+                  <th>Jumlah</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Tanggal Pesanan</th>
+                  <th>Action</th>
+                </thead>
+                <tbody>
+                    <?php 
+                      $no= 1;
+                        $sqlPesanan = mysqli_query($koneksi,"SELECT * FROM pesanan where iduser='".$_SESSION['id']."'");
+                        while($datapesanan = mysqli_fetch_array($sqlPesanan)){
+                    ?>
+                  <tr>
+                    <td><?= $no++ ?></td>
+                    <td><img src="admin/produk/img/<?= $datapesanan['img_produk'] ?>" alt="" width="150px" height="120px" ></td>
+                    <td><?= $datapesanan['nama_produk'] ?></td>
+                    <td><?= $datapesanan['harga'] ?></td>
+                    <td><?= $datapesanan['jumlah'] ?></td>
+                    <td><?= $datapesanan['total_harga'] ?></td>
+                    <td><?= $datapesanan['status'] ?></td>
+                    <td><?= $datapesanan['tgl_pesanan'] ?></td>
+                    <td><a href="detail-cart.php?idproduk=<?= $datapesanan['idproduk'] ?>" >Detail</a></td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
               </table>
             </div>
         </div>

@@ -350,3 +350,24 @@ body{
 .konten .wrapper-akun .form-akun .MyOrder table{
   width: 100%;
 }
+
+.konten .wrapper-akun .form-akun .MyOrder table{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+}
+
+@media print {
+  .print{
+    display: block;
+  }
+
+  .navbar{
+    display: none;
+  }
+
+  .konten{
+    display: none;
+  }
+}

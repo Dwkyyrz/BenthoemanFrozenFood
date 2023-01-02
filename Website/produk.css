@@ -18,16 +18,22 @@ body {
 
 :root {
   --dark: black;
+  --grey: rgba(41, 48, 66);
   --info-dark: #7d8da1;
   --light: rgba(132, 139, 200, 0.18);
   --info-light: #dce1eb;
+  --info-light2: rgba(137, 136, 130);
+  --info-lightTR: rgba(255, 255, 255, 0.1);
+  --info-lightTR2: rgb(240, 240, 240, .4);
+  --info-lightTR3: rgb(240, 240, 240, .5);
   --white: white;
   --hijau-gelap1: rgba(9, 60, 88);
   --hijau-gelap2: rgba(14, 34, 56);
+  --hijauTR: rgba(0, 255, 55, 0.2);
   --white-dark: rgba(240, 240, 240);
   --birugelap: rgba(55, 138, 164, 1);
   --birucerah: rgba(159, 225, 245);
-  --birucerahTR: rgba(159, 225, 245, .5);
+  --birucerahTR: rgba(159, 225, 245, 0.5);
   --hover: rgba(102, 163, 186);
 }
 
@@ -206,4 +212,99 @@ body {
 
 .nav-scrolled{
   background-color: var(--birucerahTR); 
+}
+
+.konten{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 100vw;
+  /* height: 100vh; */
+  background-color: var(--white);
+}
+.konten h1{
+  margin-left: auto;
+  margin-right: auto;
+}
+.konten .container-produk{
+  width: 95%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: antiquewhite; */
+}
+
+.konten .container-produk .card{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80vw;
+  min-height: 50vh;
+  max-height: 95vh;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 3;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 5px;
+}
+.konten .container-produk .card .card-produk{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 250px;
+  height: 350px;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, .1);
+}
+.konten .container-produk .card .card-produk .img-produk{
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.konten .container-produk .card .card-produk img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.konten .container-produk .card .card-produk span{
+  margin-left: 15px;
+}
+
+.konten .container-produk .card .card-produk .input{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 15px;
+}
+
+.konten .container-produk .card .card-produk .input .input-jumlah{
+  font-weight: 800;
+  font-size: 16px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  background-color: var(--white);
+  border: solid 1px #222;
+  margin-left: 15px;
+  border-radius: 10px;
+}
+
+.konten .container-produk .card .card-produk .input button{
+  display: flex;
+  margin-left: auto;
+  margin-right: 15px;
+  width: 60px;
+  height: 45px;
+  border: none;
+  background-color: var(--hijau-gelap1);
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
 }

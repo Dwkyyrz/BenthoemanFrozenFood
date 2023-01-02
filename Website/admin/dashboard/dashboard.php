@@ -63,7 +63,7 @@
             </a>
           </li>
           <li>
-            <a href="../../admin/akun/akun.php">
+            <a href="../../admin/account/akun.php">
               <i class="fa-solid fa-id-badge"></i>
               <span>Akun</span>
             </a>
@@ -115,7 +115,7 @@
       <div class="container-konten">
         <div class="container-1">
           <div class="welcome">
-            <h3>Selamat datang, Dwikyy</h3>
+            <h3>Selamat datang, <?php echo "".$data['nama']."";?> </h3>
             <h5>Benthoeman FrozenFood<br> Dashboard</h5>
           </div>
           <div class="total-user">

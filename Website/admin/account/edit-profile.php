@@ -1,6 +1,6 @@
 
 <?php 
-  include 'koneksi.php';
+  include '../../koneksi.php';
   session_start();
 
     $id       = mysqli_real_escape_string($koneksi, $_POST['id']);
@@ -15,7 +15,6 @@
       // session_start();
       // session_regenerate_id();
       $_SESSION['proses'] = "Data Berhasil Diperbarui";
-      
       // echo "<script> 
       //       alert('Berhasil Merubah data');
       //       window.history.back(); 

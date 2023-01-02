@@ -1,10 +1,10 @@
 <?php 
     include '../../koneksi.php';
     $id = $_GET['id'];
-
     $sql_produk = "SELECT * FROM produk WHERE idproduk = '$id'";
     $data_sql = mysqli_query($koneksi,$sql_produk);
     $d = mysqli_fetch_assoc($data_sql);
+    var_dump($d);
 ?>
 <!DOCTYPE html>
 <html lang="en">

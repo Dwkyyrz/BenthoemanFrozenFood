@@ -190,59 +190,44 @@ aside {
   width: 97%;
   margin: 1.5rem auto auto auto ; 
   padding: 20px;
-}
-.konten .container-konten .alertEdit{
+}.konten .container-konten form{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--hijauTR);
-  padding: 20px;
+  flex-direction: column;
 }
-.konten .container-konten .alertEdit i{
-  font-size: 20px;
-  cursor: pointer;
-}
-.konten .container-konten .alertEdit i:hover{
-  font-size: 25px;
-}
-.konten .container-konten .container-klien{
-  /* width: 100%; */
-  height: 100%;
-  overflow: auto;
-  margin-top: 10px;
-  padding: 10px;
-}
-.konten .container-konten .container-klien table{
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-}
-.konten .container-konten .container-klien table th{
-  background-color: var(--grey);
-  color: var(--white);
-  height: 3rem;
-  border: solid 1px white;
-}
-.konten .container-konten .container-klien table tr td{ 
-  background-color: var(--info-light);
+.konten .container-konten form label{
   font-weight: 500;
-  height: 6rem;
+  margin-bottom: 1rem;
+
 }
-.konten .container-konten .container-klien table tr:nth-child(even){
+.konten .container-konten form label input{
   background-color: var(--info-lightTR3);
-}
-.konten .container-konten .container-klien table tr .btn a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 40px;
-  height: 40px;
   border-radius: 7px;
+  /* border-bottom: 1px black solid; */
+  padding: 15px;
+  font-size: 1rem;
+  width: 100%;
+}
+.konten .container-konten form label textarea{
+  background-color: var(--info-lightTR3);
+  border-radius: 7px;
+  /* border-bottom: 1px black solid; */
+  padding: 15px;
+  font-size: 1rem;
+  width: 100%;
+}
+.konten .container-konten form .btn-submit{
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
   background-color: var(--grey);
   color: var(--white);
 }
-
+.konten .container-konten form .btn-submit:hover{
+  background-color: var(--info-dark);
+  
+}
 
 
 

@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
   include '../../koneksi.php';
     session_start();
     if($_SESSION['status']!== "login"){
@@ -20,7 +20,7 @@
     //produk
     $totaluser = mysqli_fetch_array(mysqli_query($koneksi, "SELECT COUNT(*) AS totaluser FROM user WHERE rule='client'"));
     $totalproduk = mysqli_fetch_array(mysqli_query($koneksi, "SELECT COUNT(*) AS totalproduk FROM produk"));
-?> 
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,9 +29,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produk</title>
+  <title>Klien</title>
   <link rel="icon" type="image/x-icon" href="../../src/img/bg2.png">
-  <link rel="stylesheet" href="produk.css">
+  <link rel="stylesheet" href="klien.css">
   <script src="https://kit.fontawesome.com/3119dd19b3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -69,13 +69,13 @@
             </a>
           </li>
           <li>
-            <a href="../../admin/klien/klien.php" >
+            <a href="../../admin/klien/klien.php" class="active">
               <i class="fa-solid fa-users"></i>
               <span>Klien</span>
             </a>
           </li>
           <li>
-            <a href="../../admin/produk/produk.php" class="active">
+            <a href="../../admin/produk/produk.php">
               <i class="fa-solid fa-basket-shopping"></i>
               <span>Produk</span>
             </a>
@@ -113,58 +113,44 @@
       </div>
 
       <div class="container-konten">
-        <h2>DAFTAR PRODUK</h2>
-        <a href="input-produk.php" 
-            style="background-color: rgba(41, 48, 66); padding: 10px; width: 100px; 
-                    margin-top: 1rem; margin-left: 1rem;
-                    color: white; text-align: center;" >
-          <i class="fa-solid fa-plus"></i> Produk
-          <!-- <button>input barang</button> -->
-        </a>
-
+        <h2>DAFTAR PENGGUNA</h2>
         <div class="container-klien">
-            <table>
-              <tr style="text-transform:  uppercase;">
-                <th scope="col">no</th>
-                <th scope="col">gambar</th>
-                <th scope="col">nama produk</th>
-                <th scope="col">harga</th>
-                <th scope="col">detail</th>
-                <th scope="col">edit</th>
-                <th scope="col">hapus</th>
-              </tr>
-                  <?php 
-                    include '../../koneksi.php';
-                    $no = 1;
-                    $query = mysqli_query($koneksi, "SELECT * FROM produk");
-                    while ($data = mysqli_fetch_array($query)) {
-                  ?>
-              <tr>
-                <td scope="row"><?php echo $no++ ?></td>
-                <td><img src="img/<?php echo $data['img'] ?>" alt="" width="150px" height="100px"></td>
-                <td><?php echo $data['nama_produk'] ?></td>
-                <td>Rp<?php echo $data['harga'] ?></td>
-                <td><?php echo $data['detail'] ?></td>
-                <td class="btn">
-                  <a href="edit-produk.php?id=<?php echo $data['idproduk'] ?>">
-                    <i class="fa-solid fa-pen"></i>
-                  </a>
-                </td>
-                <td class="btn">
-                  <a href="proses-hapus.php?id=<?php echo $data['idproduk']  ?>" onclick="return confirm('apakah anda yakin untuk menghapus?')" >
-                    <i class="fa-regular fa-trash-can"></i>
-                  </a>
-                </td>
-              </tr>
-              <?php } ?>
-            </table>
+          <table>
+            <tr>
+              <th>No</th>
+              <th>NAMA</th>
+              <th>USERNAME</th>
+              <th>EMAIL</th>
+              <th>ALAMAT</th>
+              <th>NOMOR</th>
+            </tr>
+                <?php 
+                  $no = 1;
+                  $klienQuery = mysqli_query($koneksi, "SELECT * FROM user where rule='client'");
+                  while ($klien = mysqli_fetch_array($klienQuery)) {
+                ?>
+            <tr >
+              <td style="text-align: center;""><?= $no++ ?></td>
+              <td><?= $klien['nama'] ?></td>
+              <td><?= $klien['username'] ?></td>
+              <td><?= $klien['email'] ?></td>
+              <td><?= $klien['alamat'] ?></td>
+              <td><?= $klien['notelp'] ?></td>
+              <!-- <td></td>
+              <td><?= $data['detail'] ?></td>
+              <td>Rp. <?= $data['harga'] ?></td> -->
+            </tr>
+            
+            <?php } ?>
+
+          </table>
         </div>
       </div>
     </section>
   </div>
 
 
-  <script src="produk.js"></script>
+  <script src="klien.js"></script>
 </body>
 
 </html>

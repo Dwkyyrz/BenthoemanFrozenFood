@@ -168,7 +168,20 @@ $data = mysqli_fetch_array($hasil);
     <section class="bottom">
       <div class="ornamen">
         <div class="slice"></div>
-        <div class="bottom-bot"></div>
+        <div class="bottom-bot">
+          <h3>Kontak</h3>
+          <br>
+          <a href="https://wa.me/6281333007494"
+            style="color: white; display: flex;  align-items: center; width: 200px; text-decoration: none; margin-bottom: 40px;">
+            <i class="fa-brands fa-whatsapp" style="font-size: 2rem; margin-right: 10px;"></i>
+            WhatsApp
+          </a>
+          <a href="https://wa.me/6281333007494"
+            style="color: white; display: flex;  align-items: center; width: 40%; text-decoration: none; margin-bottom: 40px;">
+            <i class="fa-solid fa-location-dot" style="font-size: 2rem; margin-right: 10px;"></i>
+            Perum, Taman Candiloka, Ngampelsari, Kec. Candi, Kabupaten Sidoarjo, Jawa Timur 61271
+          </a>
+        </div>
       </div>
     </section>
   </div>

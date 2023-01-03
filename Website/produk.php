@@ -153,7 +153,7 @@ $data = mysqli_fetch_array($hasil);
             <div class="img-produk">
               <img src="./admin/produk/img/<?= $data['img']?>" alt="">
             </div>
-            <span><?= $data['nama_produk'] ?></span>
+          <a href="detail-produk.php?idproduk=<?php echo $data['idproduk']  ?>" style="text-decoration: none; color: black;"><span><?= $data['nama_produk'] ?></span></a>
             <span>Rp. <?= $data['harga'] ?></span>
   
             <form action="proses-cart.php" method="post">

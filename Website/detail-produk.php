@@ -8,18 +8,26 @@ $id = $_SESSION['id'];
 $query = "SELECT * FROM user WHERE id='$id'";
 $hasil = mysqli_query($koneksi, $query);
 $data = mysqli_fetch_array($hasil);
-?>
 
+$idproduk = $_GET['idproduk'];
+$sql_produk = "SELECT * FROM produk WHERE idproduk = '$idproduk'";
+$data_sql = mysqli_query($koneksi,$sql_produk);
+$datahasil = mysqli_fetch_array($data_sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Benthoeman Frozenfood</title>
+  <title>Detail Produk</title>
   <link rel="icon" type="image/x-icon" href="../Website/src/img/bg2.png">
-  <link rel="stylesheet" href="indexstyle.css">
+  <link rel="stylesheet" href="detail-produk.css">
   <script src="https://kit.fontawesome.com/3119dd19b3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -74,7 +82,7 @@ $data = mysqli_fetch_array($hasil);
               </div>
               <span>
                 <?php 
-                  echo $data['nama'];
+                  echo $_SESSION['username'];
                 ?>
               </span>
             </a>
@@ -136,130 +144,22 @@ $data = mysqli_fetch_array($hasil);
             </a>
           </div>
         </li>
-
       </ul>
-
     </nav>
 
-
-
-    <section class="header-container">
-      <div class="banner">
-        <!-- Teks -->
-        <div class="text">
-          <span class="teks-slogan">Fresh food, <br>For your mood</span><br>
-          <span class="teks-animasi"></span><br>
-          <a href="produk.php">
-            <button type="button" class="btn-all-produk">View All Products ></button><br>
-          </a>
-        </div>
-        <!-- Gambar-->
-        <div class="img-makanan">
-          <img src="src/img/bg2.png" alt="">
-        </div>
-      </div>
-      <img id="img-es1" src="src/img/es.png">
-    </section>
-
-    <!-- Konten 1 -->
-    <section class="slogan">
-      <img id="img-es2" src="src/img/es2.png" alt="">
-
-      <div class="slogan-content">
-        <div class="card">
-          <img src="../Website/src/img/cloche.svg" alt="">
-          <h4>FRESH & BERKUALITAS</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
-        </div>
-        <div class="card">
-          <img src="../Website/src/img/garpu.svg" alt="">
-          <h4>SIAP SAJI</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
-        </div>
-        <div class="card">
-          <img src="../Website/src/img/delivery.svg" alt="">
-          <h4>PENGIRIMAN CEPAT</h4>
-          <p>Makanan yang berkualitas dan bergizi tidak mengandung bahan pengawet dan aman untuk dikonsumsi</p>
+    <section class="konten">
+      <h1> DETAIL PRODUK</h1>
+      <div class="container-produk">
+        <img src="admin/produk/img/<?php echo $datahasil['img'] ?>" alt="">
+        <div class="detail">
+          <h3>Nama produk : <span style="font-weight: 400;"><?php echo $datahasil['nama_produk'] ?></span></h3>
+          <h3>Harga produk : <span style="font-weight: 400;"><?php echo $datahasil['harga'] ?></span></h3>
+          <h3>Deskripsi : <span style="font-weight: 400;"><?php echo $datahasil['detail'] ?></span></h3>
         </div>
       </div>
     </section>
-    <!-- End of Konten 1-->
 
-    <section class="about-us" id="about-us">
-      <div class="teks-about-us1">
-        <img src="../Website/src/svg/daun.svg" class="daun1">
-        <img src="../Website/src/svg/tangan.svg" class="tangan">
-        <img src="../Website/src/svg/daun.svg" class="daun2">
-      </div>
-      <div class="teks-about-us2">
-        <h1>About Us</h1>
-        <p>Benthoeman Frozenfood menyediakan aneka ragam makanan beku mulai dari olahan ayam, daging, sayuran dan juga
-          ikan</p>
-      </div>
-    </section>
-
-    <section class="produk" id="produk">
-      <div class="top-produk">
-        <h1>Products</h1>
-        <a href="produk.php" class="button-produk">
-          <button><b>View All Products >></b></button>
-        </a>
-      </div>
-
-      <div class="card">
-          <?php 
-            $query = mysqli_query($koneksi, "SELECT * FROM produk");
-            while ($data = mysqli_fetch_array($query)) {
-          ?>
-        <div class="card-produk">
-          <div class="img-produk">
-            <img src="./admin/produk/img/<?= $data['img']?>" alt="">
-          </div>
-          <a href="detail-produk.php?idproduk=<?php echo $data['idproduk']  ?>" style="text-decoration: none; color: black;"><span><?= $data['nama_produk'] ?></span></a>
-          <span><?= $data['harga'] ?></span>
-
-          <form action="proses-cart.php" method="post">
-            <div class="input">
-              <input type="text" name="iduser" value="<?= $_SESSION['id']?>" class="form-control jumlah" id="" hidden>
-              <input type="text" name="idproduk" value="<?= $data['idproduk']?>" class="form-control jumlah" id="" hidden>
-              <input type="number" name="jumlah" min="1" value="1" class="input-jumlah">
-              <button>
-                <i class="fa-solid fa-cart-plus"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-        <?php } ?>
-      </div>
-    </section>
-
-    <section class="bottom" id="kontak">
-      <div class="teks">
-        <h1>BISA PESAN MELALUI MOBILE APPS</h1>
-        <p>Tersedia juga pemesanan produk frozen food Benthoeman melalui mobile apps Android yang dapat anda pesan
-          secara mudah</p>
-          
-      </div>
-      <div class="ornamen">
-        <div class="slice"></div>
-        <div class="bottom-bot">
-          <h3>Kontak</h3>
-          <br>
-          <a href="https://wa.me/6281333007494"
-            style="color: white; display: flex;  align-items: center; width: 200px; text-decoration: none; margin-bottom: 40px;">
-            <i class="fa-brands fa-whatsapp" style="font-size: 2rem; margin-right: 10px;"></i>
-            WhatsApp
-          </a>
-          <a href="https://wa.me/6281333007494"
-            style="color: white; display: flex;  align-items: center; width: 40%; text-decoration: none; margin-bottom: 40px;">
-            <i class="fa-solid fa-location-dot" style="font-size: 2rem; margin-right: 10px;"></i>
-            Perum, Taman Candiloka, Ngampelsari, Kec. Candi, Kabupaten Sidoarjo, Jawa Timur 61271
-          </a>
-        </div>
-      </div>
-    </section>
   </div>
-
 
   <script src="index.js"></script>
   <!-- Search -->

@@ -81,6 +81,12 @@
             </a>
           </li>
           <li>
+            <a href="../../admin/pesanan/pesanan.php">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Pesanan</span>
+            </a>
+          </li>
+          <li>
             <a href="../../logout.php">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               <span>Logout</span>
